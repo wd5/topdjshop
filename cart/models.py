@@ -1,11 +1,11 @@
 from django.db import models
-from catalog.models import Product
+from catalog.models import Products
 
 class CartItem(models.Model):
     cart_id = models.CharField(max_length=50)
     date_added = models.DateTimeField(auto_now_add=True)
     quantity = models.IntegerField(default=1)
-    product = models.ForeignKey(Product, unique=False)
+    product = models.ForeignKey(Products, unique=False)
 
     class Meta:
         db_table = 'cart_items'

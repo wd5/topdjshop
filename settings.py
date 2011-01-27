@@ -91,6 +91,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'topdjshop.catalog',
+    'topdjshop.cart',
     # 'django.contrib.admindocs',
 )
 

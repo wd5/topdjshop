@@ -69,9 +69,6 @@ class Products(models.Model):
     def get_absolute_url(self):
         return ('product-page', [str(self.slug)])
 
-#    def get_features(self):
-#        return [self.Type, self.Length, self.Features, self.Connector]
-
     class Meta:
         ordering = ['-created_at']
         verbose_name_plural = 'Товар'
@@ -79,7 +76,7 @@ class Products(models.Model):
 class ProductsPhoto(models.Model):
     item = models.ForeignKey(Products)
     title = models.CharField(max_length=100)
-    image = ThumbnailImageField(upload_to='images/products')
+    image = ThumbnailImageField(upload_to='products_image')
     caption = models.CharField(max_length=250, blank = True)
 
     class Meta:
