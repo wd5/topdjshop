@@ -4,8 +4,10 @@ from django.template import RequestContext
 from catalog.models import Categories, Products
 
 def index(request):
-    special_prices = Products.objects.filter(is_special_price=True)
-    bestsellers = Products.objects.filter(is_bestseller=True)
+    # На главную отдаю только последние 3 тавара со спец ценой
+    special_prices = Products.objects.filter(is_special_price=True)[0:3]
+    # На главную отдаю только последние 3 тавара бестселлера
+    bestsellers = Products.objects.filter(is_bestseller=True)[0:3]
     return render_to_response('main/index.html', locals(), context_instance=RequestContext(request))
 
 def show_category(request, category_slug):
