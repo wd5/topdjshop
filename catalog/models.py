@@ -1,6 +1,5 @@
           # -*- coding: utf-8 -*-
 from django.db import models
-from stdimage import StdImageField
 from catalog.fields import ThumbnailImageField
 
 
