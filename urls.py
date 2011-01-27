@@ -1,6 +1,7 @@
           # -*- coding: utf-8 -*-
 from django.conf.urls.defaults import *
 import settings
+import os
 
 from django.contrib import admin
 admin.autodiscover()
@@ -14,5 +15,5 @@ if settings.DEBUG:
     urlpatterns += patterns ('',
           # Статика для тестового веб сервера
         (r'^static/(?P<path>.*)$', 'django.views.static.serve',
-            { 'document_root': '/Users/freebsdstuff/PycharmProjects/topdjshop/static'}),
+            { 'document_root': settings.MEDIA_ROOT}),
     )
