@@ -261,19 +261,25 @@ blockquote, q {
 .content_body_border_left {
 	display: table-cell;
 	vertical-align: top;
-	width: 5px;
-	background: url("images/body_border.png") repeat-y;
 }
 .content_body_border_right {
 	display: table-cell;
 	vertical-align: top;
-	width: 5px;
-	background: url("images/body_border.png") repeat-y;
 }
 .content_body_center {
 	display: table-cell;
 	vertical-align: top;
 	width: 100%;
+}
+.content_body_border_left_inner {
+	width: 5px;
+	height: 246px;
+	background: url("images/body_border.png") repeat-y;
+}
+.content_body_border_right_inner {
+	width: 5px;
+	height: 246px;
+	background: url("images/body_border.png") repeat-y;
 }
 .loop_right {
 	width: 40px;
@@ -411,7 +417,7 @@ blockquote, q {
 .market_desc p {
 	margin-bottom: 10px;
 	text-indent: 15px;
-	font-size: 12px;
+	font-size: 15px;
 }
 .menu_body_body_inner ul {
 	display: block;
@@ -638,54 +644,4 @@ blockquote, q {
 	text-align: center;
 	margin-bottom: 25px;
 	margin-top: 15px;
-}
-.header_table td {
-	vertical-align: middle;
-	text-align: center;
-	font-family: sans-serif;
-	color: #666666;
-	font-size: 13px;
-}
-.body_table td {
-	vertical-align: middle;
-	text-align: center;
-	font-family: sans-serif;
-	color: #666666;
-	font-size: 12px;
-	height: 120px;
-}
-.body_table td input {
-	width: 100px;
-}
-.bordered_cell {
-	border-top: 1px dotted #666666;
-	border-bottom: 1px dotted #666666;
-	height: 50px;
-}
-.basket_price {
-	color: #D41E1D;
-	font-size: 14px;
-}
-.basket_market_name {
-	color: #63A027;
-	text-decoration: none;
-	font-size: 14px;
-	font-weight: bold;
-}
-.desc_basket {
-	color: #666666;
-	text-align: center;
-	padding-top: 20px;
-}
-.basket_trs td {
-	font-family: sans-serif;
-	color: #666666;
-	font-size: 12px;
-	height: 50px;
-	vertical-align: middle;
-}
-.basket_fields {
-	width: 100%;
-	border: 1px solid #cccccc;
-	height: 25px;
 }
