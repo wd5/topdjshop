@@ -89,6 +89,5 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'topdjshop.catalog',
-    'mptt',
     # 'django.contrib.admindocs',
 )
