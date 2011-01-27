@@ -1,436 +1,235 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-	<head>
-		<title>Верстка</title>
-		<link href="{{ MEDIA_URL }}style.css" type="text/css" rel="stylesheet" />
-		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-		<script src="jquery.js" type="text/javascript"> </script>
-		<script type="text/javascript">
-			$(document).ready(function(){
-				$("#ears_here").after("<div class='ears'></div>");
-				var new_position = $("html").height() - 472;
-				$(".ears").attr("style", "position: absolute; top: "+new_position+"px; left: 60px;");
-			})
-		</script>
-	</head>
-	<body>
-		<div id="wrapper" class="clearfix">
-			<div id="sidebar" class="column">
-				<div class="sidebar_inner">
-					<div class="logo">
-						<a href="index.html" title="Главная страница"></a>
-					</div>
-					<div class="search_block">
-						<form action="" method="">
-							<input class="search_field" type="text" name="search" value="Введите слово для поиска..." />
-						</form>
-					</div>
-					<div class="under_search_block">
-					</div>
-					<div class="sidebar_body">
-						<div style="margin-left: 25px; padding-top: 20px;">
-                            <div class="menu_cat">
-                                <h2>
-                                    НАУШНИКИ
-                                </h2>
-                                <div style="margin-top: 10px;">
-                                    <ul class="sidebar_menu">
-                                        {% for category in active_categories %}
-                                            <li>
-                                                <a href="{{ category.get_absolute_url }}" title="">{{ category.name }}</a>
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                            </div>
-						</div>
-					</div>
-					<div class="sidebar_footer">
-					</div>
-				</div>
-			</div>
-			<div id="content" class="column">
-				<div class="header">
-					<div class="header_space_left">
-						<div class="header_space_left_inner">
-						</div>
-					</div>
-					<div class="header_contacts">
-						<div class="header_contacts_title">
-								Интернет-магазин аудио оборудования
-						</div>
-						<div class="header_contacts_space">
-							<h2>(499) <b class="header_contacts_space_big">504-43-89</b></h2>
-						</div>
-						<div class="header_contacts_icqcell">
-							<h2>200-233-273</h2>
-						</div>
-					</div>
-					<div class="header_space_right">
-						<div class="bascet">
-							<div class="bascet_top">
-								<div class="hello_user_text">
-								Добро пожаловать,<br />
-								<b class="hello_user">пользователь</b>
-								</div>
-								<h2 class="bascet_h">
-									КОРЗИНА
-								</h2>
-							</div>
-							<div class="bascet_body">
-								<div class="in_bascet">
-									В вашей корзине <b class="num_market">3</b> товар (а)
-								</div>
-								<center style="padding-top: 5px; padding-bottom: 5px;">
-									<a href="" title="сделать заказ"><img src="{{ MEDIA_URL }}images/make_order.png" alt="сделать заказ" /></a>
-								</center>
-							</div>
-							<div class="bascet_footer">
-								<center>
-									<a class="bascet_links" href="" title="Войти">Войти</a> <b class="bascet_zero">*</b> <a class="bascet_links" href="" title="Регистрация">Регистрация</a>
-								</center>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="menu">
-					<div class="menu_body">
-						<div class="menu_body_left_inner">
-						</div>
-						<div class="menu_body_body_inner" style="display: table-cell; vertical-align: top;">
-							<div class="menu_trans">
-								<ul>
-									<li>
-										<a href="index.html" title="Главная">главная</a>
-									</li>
-									<li>
-										<a href="index.html" title="Доставка и оплата">доставка и оплата</a>
-									</li>
-									<li>
-										<a href="index.html" title="О нас">о нас</a>
-									</li>
-									<li>
-										<a href="index.html" title="Блог">блог</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="menu_right">
-						<div class="menu_right_inner">
-						</div>
-					</div>
-				</div>
-				<div class="under_menu">
-					<div class="under_menu_left">
-						<div class="under_menu_left_inner">
-						</div>
-					</div>
-					<div class="under_menu_right">
-						<div class="under_menu_right_left">
-						</div>
-						<div class="under_menu_right_right">
-						</div>
-					</div>
-				</div>
-				<div class="top_content">
-					<div class="top_content_left">
-						<div class="top_content_left_inner">
-						</div>
-					</div>
-					<div class="top_content_right">
-						<div class="top_panel">
-							<div class="top_panel_left">
-							</div>
-							<div class="top_panel_right">
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="top_content_body">
-					<div class="top_content_body_left">
-						<div class="top_content_body_left_inner">
-							<div class="loop_right">
-							</div>
-						</div>
-					</div>
-					<div class="top_content_body_right">
-						<div class="content_body">
-							<div class="content_body_border_left">
-								<div class="content_body_border_left_inner">
-								</div>
-							</div>
-							<div class="content_body_center">
-								<h1 class="block_title">
-									Специальная цена
-								</h1>
-								<table width="100%" border="0" cellpadding="0" cellspacing="0">
-									<tr>
-										<td width="33%">
-											<div class="market_wrapper">
-												<center>
-													<a href="{{ MEDIA_URL }}" title="Pioneer CDJ-900"><img class="market_image" src="{{ MEDIA_URL }}market/1.jpg" alt="Товар 1" /></a>
-													<a class="market_name" href="{{ MEDIA_URL }}" title="Pioneer CDJ-900"><span>Pioneer CDJ-900</span></a>
-													<span class="market_price">43500 руб.</span>
-													<p class="market_desc">
-														DJ-проигрыватель. Front Load CD...
-													</p>
-													<a class="add_to_basket_link" href="to_basket" title="Добавить в корзину"><img class="add_to_basket" src="{{ MEDIA_URL }}images/to_basket.png" alt="Кнопка добавить в корзину" /></a>
-												</center>
-											</div>
-										</td>
-										<td width="33%">
-											<div class="market_wrapper">
-												<center>
-													<a href="{{ MEDIA_URL }}" title="Pioneer CDJ-900"><img class="market_image" src="{{ MEDIA_URL }}market/1.jpg" alt="Товар 1" /></a>
-													<a class="market_name" href="{{ MEDIA_URL }}" title="Pioneer CDJ-900"><span>Pioneer CDJ-900</span></a>
-													<span class="market_price">43500 руб.</span>
-													<p class="market_desc">
-														DJ-проигрыватель. Front Load CD Тра та та та тата немного инфы и больше и больше...
-													</p>
-                                                    <a class="add_to_basket_link" href="to_basket" title="Добавить в корзину"><img class="add_to_basket" src="{{ MEDIA_URL }}images/to_basket.png" alt="Кнопка добавить в корзину" /></a>
-												</center>
-											</div>
-										</td>
-										<td width="33%">
-											<div class="market_wrapper">
-												<center>
-													<a href="{{ MEDIA_URL }}" title="Pioneer CDJ-900"><img class="market_image" src="{{ MEDIA_URL }}market/1.jpg" alt="Товар 1" /></a>
-													<a class="market_name" href="{{ MEDIA_URL }}" title="Pioneer CDJ-900"><span>Pioneer CDJ-900</span></a>
-													<span class="market_price">43500 руб.</span>
-													<p class="market_desc">
-														DJ-проигрыватель. Front Load CD Тра та та та тата немного инфы и больше и больше...
-													</p>
-                                                    <a class="add_to_basket_link" href="to_basket" title="Добавить в корзину"><img class="add_to_basket" src="{{ MEDIA_URL }}images/to_basket.png" alt="Кнопка добавить в корзину" /></a>
-												</center>
-											</div>
-										</td>
-									</tr>
-								</table>
-							</div>
-							<div class="content_body_border_right">
-								<div class="content_body_border_right_inner">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="top_content_bottom">
-					<div class="top_content_bottom_left">
-						<div class="top_content_bottom_left_inner">
-						</div>
-					</div>
-					<div class="top_content_bottom_right">
-						<div class="bottom_panel">
-							<div class="bottom_panel_left">
-							</div>
-							<div class="bottom_panel_right">
-							</div>
-						</div>
-					</div>
-				</div>
+{% extends "base.html" %}
+{% load catalog_filters %}
 
-				<div class="under_menu">
-					<div class="under_menu_left">
-						<div class="under_menu_left_inner_none">
-						</div>
-					</div>
-					<div class="under_menu_right">
-						<div class="under_menu_right_left_none">
-						</div>
-						<div class="under_menu_right_right">
-						</div>
-						<div class="under_block_desc">
-							<div class="under_block_desc_left">
-								<div class="under_block_desc_left_inner">
-								</div>
-							</div>
-							<div class="under_block_desc_center">
-								Все товары по специальной цене
-							</div>
-							<div class="under_block_desc_right">
-								<div class="under_block_desc_right_inner">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+{% block site_wrapper %}
+<div id="wrapper" class="clearfix">
+    <div id="sidebar" class="column">
+        {% category_list request.path %}
+    </div>
+    <div id="content" class="column">
+        <div class="header">
+            {% include 'tags/header.html' %}
+        </div>
+        <div class="menu">
+            {% include 'tags/menu.html' %}
+        </div>
+        <div class="under_menu">
+            <div class="under_menu_left">
+                <div class="under_menu_left_inner">
+                </div>
+            </div>
+            <div class="under_menu_right">
+                <div class="under_menu_right_left">
+                </div>
+                <div class="under_menu_right_right">
+                </div>
+            </div>
+        </div>
+        <div class="top_content">
+            <div class="top_content_left">
+                <div class="top_content_left_inner">
+                </div>
+            </div>
+            <div class="top_content_right">
+                <div class="top_panel">
+                    <div class="top_panel_left">
+                    </div>
+                    <div class="top_panel_right">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top_content_body">
+            <div class="top_content_body_left">
+                <div class="top_content_body_left_inner">
+                    <div class="loop_right">
+                    </div>
+                </div>
+            </div>
+            <div class="top_content_body_right">
+                <div class="content_body">
+                    <div class="content_body_border_left">
+                        <div class="content_body_border_left_inner">
+                        </div>
+                    </div>
+                    <div class="content_body_center">
+                        <h1 class="block_title">
+                            Специальная цена
+                        </h1>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                            {% for item in special_prices %}
+                                <td width="33%">
+                                    <div class="market_wrapper">
+                                        <center>
+                                            <a href="{{ item.get_absolute_url }}" title="{{ item.name }}"><img class="market_image" src="{{ item.productsphoto_set.all.0.image.thumb_url }}" alt="{{ item.name }}" /></a>
+                                            <a class="market_name" href="{{ MEDIA_URL }}" title="{{ item.name }}"><span>{{ item.brand }} {{ item.name }}</span></a>
+                                            <span class="market_price">{{ item.price }} руб.</span>
+                                            <p class="market_desc">
+                                               <i> {{ item.mini_description }} </i>
+                                            </p>
+                                            <a class="add_to_basket_link" href="to_basket" title="Добавить в корзину"><img class="add_to_basket" src="{{ MEDIA_URL }}images/to_basket.png" alt="Кнопка добавить в корзину" /></a>
+                                        </center>
+                                    </div>
+                                </td>
+                            {% endfor %}
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="content_body_border_right">
+                        <div class="content_body_border_right_inner">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top_content_bottom">
+            <div class="top_content_bottom_left">
+                <div class="top_content_bottom_left_inner">
+                </div>
+            </div>
+            <div class="top_content_bottom_right">
+                <div class="bottom_panel">
+                    <div class="bottom_panel_left">
+                    </div>
+                    <div class="bottom_panel_right">
+                    </div>
+                </div>
+            </div>
+        </div>
 
-				<div class="top_content">
-					<div class="top_content_left">
-						<div class="top_content_left_inner" style="background: none;">
-						</div>
-					</div>
-					<div class="top_content_right">
-						<div class="top_panel">
-							<div class="top_panel_left">
-							</div>
-							<div class="top_panel_right">
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="top_content_body">
-					<div class="top_content_body_left">
-						<div class="top_content_body_left_inner">
-							<div class="loop_right" style="background: none;">
-							</div>
-						</div>
-					</div>
-					<div class="top_content_body_right">
-						<div class="content_body">
-							<div class="content_body_border_left">
-								<div class="content_body_border_left_inner">
-								</div>
-							</div>
-							<div class="content_body_center">
-								<h1 class="block_title">
-									 Лидеры продаж
-								</h1>
-								<table width="100%" border="0" cellpadding="0" cellspacing="0">
-									<tr>
-										<td width="33%">
-											<div class="market_wrapper">
-												<center>
-													<a href="{{ MEDIA_URL }}" title="Pioneer CDJ-900"><img class="market_image" src="{{ MEDIA_URL }}market/1.jpg" alt="Товар 1" /></a>
-													<a class="market_name" href="{{ MEDIA_URL }}" title="Pioneer CDJ-900"><span>Pioneer CDJ-900</span></a>
-													<span class="market_price">43500 руб.</span>
-													<p class="market_desc">
-														DJ-проигрыватель. Front Load CD. Пам парам пам пам тралала...
-													</p>
-                                                    <a class="add_to_basket_link" href="to_basket" title="Добавить в корзину"><img class="add_to_basket" src="{{ MEDIA_URL }}images/to_basket.png" alt="Кнопка добавить в корзину" /></a>
-												</center>
-											</div>
-										</td>
-										<td width="33%">
-											<div class="market_wrapper">
-												<center>
-													<a href="{{ MEDIA_URL }}" title="Pioneer CDJ-900"><img class="market_image" src="{{ MEDIA_URL }}market/1.jpg" alt="Товар 1" /></a>
-													<a class="market_name" href="{{ MEDIA_URL }}" title="Pioneer CDJ-900"><span>Pioneer CDJ-900</span></a>
-													<span class="market_price">43500 руб.</span>
-													<p class="market_desc">
-														DJ-проигрыватель. Front Load CD Тра та та та тата немного инфы и больше и больше...
-													</p>
-                                                    <a class="add_to_basket_link" href="to_basket" title="Добавить в корзину"><img class="add_to_basket" src="{{ MEDIA_URL }}images/to_basket.png" alt="Кнопка добавить в корзину" /></a>
-												</center>
-											</div>
-										</td>
-										<td width="33%">
-											<div class="market_wrapper">
-												<center>
-													<a href="{{ MEDIA_URL }}" title="Pioneer CDJ-900"><img class="market_image" src="{{ MEDIA_URL }}market/1.jpg" alt="Товар 1" /></a>
-													<a class="market_name" href="{{ MEDIA_URL }}" title="Pioneer CDJ-900"><span>Pioneer CDJ-900</span></a>
-													<span class="market_price">43500 руб.</span>
-													<p class="market_desc">
-														DJ-проигрыватель. Front Load CD Тра та та та тата немного инфы и больше и больше...
-													</p>
-                                                    <a class="add_to_basket_link" href="to_basket" title="Добавить в корзину"><img class="add_to_basket" src="{{ MEDIA_URL }}images/to_basket.png" alt="Кнопка добавить в корзину" /></a>
-												</center>
-											</div>
-										</td>
-									</tr>
-								</table>
-							</div>
-							<div class="content_body_border_right">
-								<div class="content_body_border_right_inner">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="top_content_bottom">
-					<div class="top_content_bottom_left">
-						<div class="top_content_bottom_left_inner">
-						</div>
-					</div>
-					<div class="top_content_bottom_right">
-						<div class="bottom_panel">
-							<div class="bottom_panel_left">
-							</div>
-							<div class="bottom_panel_right">
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="under_menu">
-					<div class="under_menu_left">
-						<div class="under_menu_left_inner_none">
-						</div>
-					</div>
-					<div class="under_menu_right">
-						<div class="under_block_desc" style="width:20%;">
-							<div class="under_block_desc_left">
-								<div class="under_block_desc_left_inner">
-								</div>
-							</div>
-							<div class="under_block_desc_center">
-								Все лидеры
-							</div>
-							<div class="under_block_desc_right">
-								<div class="under_block_desc_right_inner">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="bottom_page">
-					<h1 class="market_desc_header">
-						Описание от Викимарта
-					</h1>
-					<div class="market_desc">
-						<p>
-							Ultrices nascetur! Habitasse, dis vel tincidunt ultrices placerat et turpis diam elementum adipiscing. Dolor facilisis nascetur nec odio, etiam rhoncus, tincidunt porttitor integer nascetur! Eu amet cras urna lorem vel pulvinar natoque, nec, mauris elementum magnis, parturient massa duis turpis in augue amet! Nec mattis enim nunc tincidunt, quis a! Lectus pulvinar, nunc rhoncus, augue velit ultricies non, cras magna nunc tincidunt aliquam dictumst, in ridiculus. Nascetur magna magna dolor! Arcu habitasse, in nisi, tortor, porta phasellus ac in adipiscing montes phasellus placerat dolor scelerisque, pid non augue elementum quis, ut ac non habitasse non est hac et integer egestas tortor cras phasellus risus nisi, elementum ridiculus, magnis porta, et magna massa est et dapibus tortor. Ut duis habitasse sociis.
-						</p>
-						<p>
-							Ultrices nascetur! Habitasse, dis vel tincidunt ultrices placerat et turpis diam elementum adipiscing. Dolor facilisis nascetur nec odio, etiam rhoncus, tincidunt porttitor integer nascetur! Eu amet cras urna lorem vel pulvinar natoque, nec, mauris elementum magnis, parturient massa duis turpis in augue amet! Nec mattis enim nunc tincidunt, quis a! Lectus pulvinar, nunc rhoncus, augue velit ultricies non, cras magna nunc tincidunt aliquam dictumst, in ridiculus. Nascetur magna magna dolor! Arcu habitasse, in nisi, tortor, porta phasellus ac in adipiscing montes phasellus placerat dolor scelerisque, pid non augue elementum quis, ut ac non habitasse non est hac et integer egestas tortor cras phasellus risus nisi, elementum ridiculus, magnis porta, et magna massa est et dapibus tortor. Ut duis habitasse sociis.
-						</p>
-					</div>
-					<div class="footer_menu">
-						<ul>
-							<li>
-								<a href="" title="">ГЛАВНАЯ</a>
-							</li>
-							<li>
-								<a href="" title="">ДОСТАВКА И ОПЛАТА</a>
-							</li>
-							<li>
-								<a href="" title="">О НАС</a>
-							</li>
-							<li>
-								<a href="" title="">БЛОГ</a>
-							</li>
-						</ul>
-					</div>
-					<div class="footer_little_menu">
-						<ul>
-							<li>
-								<a href="" title="">Наушники</a>
-							</li>
-							<li>
-								<a href="" title="">Вставные</a>
-							</li>
-							<li>
-								<a href="" title="">Мониторные</a>
-							</li>
-							<li>
-								<a href="" title="">Накладные</a>
-							</li>
-							<li>
-								<a href="" title="">Pioneer</a>
-							</li>
-							<li>
-								<a href="" title="">AKG</a>
-							</li>
-							<li>
-								<a href="" title="">Весь список</a>
-							</li>
-						</ul>
-					</div>
-					<b class="copyright">Copyright (c) 1941-1945</b>
-				</div>
-			</div>
-		</div>
-		<div id="ears_here"></div>
-	</body>
-</html>
+        <div class="under_menu">
+            <div class="under_menu_left">
+                <div class="under_menu_left_inner_none">
+                </div>
+            </div>
+            <div class="under_menu_right">
+                <div class="under_menu_right_left_none">
+                </div>
+                <div class="under_menu_right_right">
+                </div>
+                <div class="under_block_desc">
+                    <div class="under_block_desc_left">
+                        <div class="under_block_desc_left_inner">
+                        </div>
+                    </div>
+                    <div class="under_block_desc_center">
+                        Все товары по специальной цене
+                    </div>
+                    <div class="under_block_desc_right">
+                        <div class="under_block_desc_right_inner">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="top_content">
+            <div class="top_content_left">
+                <div class="top_content_left_inner" style="background: none;">
+                </div>
+            </div>
+            <div class="top_content_right">
+                <div class="top_panel">
+                    <div class="top_panel_left">
+                    </div>
+                    <div class="top_panel_right">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top_content_body">
+            <div class="top_content_body_left">
+                <div class="top_content_body_left_inner">
+                    <div class="loop_right" style="background: none;">
+                    </div>
+                </div>
+            </div>
+            <div class="top_content_body_right">
+                <div class="content_body">
+                    <div class="content_body_border_left">
+                        <div class="content_body_border_left_inner">
+                        </div>
+                    </div>
+                    <div class="content_body_center">
+                        <h1 class="block_title">
+                             Лидеры продаж
+                        </h1>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                            {% for item in bestsellers %}
+                                <td width="33%">
+                                    <div class="market_wrapper">
+                                        <center>
+                                            <a href="{{ item.get_absolute_url }}" title="{{ item.name }}"><img class="market_image" src="{{ item.productsphoto_set.all.0.image.thumb_url }}" alt="{{ item.name }}" /></a>
+                                            <a class="market_name" href="{{ MEDIA_URL }}" title="{{ item.name }}"><span>{{ item.brand }} {{ item.name }}</span></a>
+                                            <span class="market_price">{{ item.price }} руб.</span>
+                                            <p class="market_desc">
+                                                {{ item.mini_description }}
+                                            </p>
+                                            <a class="add_to_basket_link" href="to_basket" title="Добавить в корзину"><img class="add_to_basket" src="{{ MEDIA_URL }}images/to_basket.png" alt="Кнопка добавить в корзину" /></a>
+                                        </center>
+                                    </div>
+                                </td>
+                            {% endfor %}
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="content_body_border_right">
+                        <div class="content_body_border_right_inner">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top_content_bottom">
+            <div class="top_content_bottom_left">
+                <div class="top_content_bottom_left_inner">
+                </div>
+            </div>
+            <div class="top_content_bottom_right">
+                <div class="bottom_panel">
+                    <div class="bottom_panel_left">
+                    </div>
+                    <div class="bottom_panel_right">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="under_menu">
+            <div class="under_menu_left">
+                <div class="under_menu_left_inner_none">
+                </div>
+            </div>
+            <div class="under_menu_right">
+                <div class="under_block_desc" style="width:20%;">
+                    <div class="under_block_desc_left">
+                        <div class="under_block_desc_left_inner">
+                        </div>
+                    </div>
+                    <div class="under_block_desc_center">
+                        Все лидеры
+                    </div>
+                    <div class="under_block_desc_right">
+                        <div class="under_block_desc_right_inner">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom_page">
+            <h1 class="market_desc_header">
+                SEO колонка
+            </h1>
+            <div class="market_desc">
+                <p>
+                    Ultrices nascetur! Habitasse, dis vel tincidunt ultrices placerat et turpis diam elementum adipiscing. Dolor facilisis nascetur nec odio, etiam rhoncus, tincidunt porttitor integer nascetur! Eu amet cras urna lorem vel pulvinar natoque, nec, mauris elementum magnis, parturient massa duis turpis in augue amet! Nec mattis enim nunc tincidunt, quis a! Lectus pulvinar, nunc rhoncus, augue velit ultricies non, cras magna nunc tincidunt aliquam dictumst, in ridiculus. Nascetur magna magna dolor! Arcu habitasse, in nisi, tortor, porta phasellus ac in adipiscing montes phasellus placerat dolor scelerisque, pid non augue elementum quis, ut ac non habitasse non est hac et integer egestas tortor cras phasellus risus nisi, elementum ridiculus, magnis porta, et magna massa est et dapibus tortor. Ut duis habitasse sociis.
+                </p>
+                <p>
+                    Ultrices nascetur! Habitasse, dis vel tincidunt ultrices placerat et turpis diam elementum adipiscing. Dolor facilisis nascetur nec odio, etiam rhoncus, tincidunt porttitor integer nascetur! Eu amet cras urna lorem vel pulvinar natoque, nec, mauris elementum magnis, parturient massa duis turpis in augue amet! Nec mattis enim nunc tincidunt, quis a! Lectus pulvinar, nunc rhoncus, augue velit ultricies non, cras magna nunc tincidunt aliquam dictumst, in ridiculus. Nascetur magna magna dolor! Arcu habitasse, in nisi, tortor, porta phasellus ac in adipiscing montes phasellus placerat dolor scelerisque, pid non augue elementum quis, ut ac non habitasse non est hac et integer egestas tortor cras phasellus risus nisi, elementum ridiculus, magnis porta, et magna massa est et dapibus tortor. Ut duis habitasse sociis.
+                </p>
+        </div>
+     {% include "tags/footer.html" %}
+    </div>
+<div id="ears_here"></div>
+{% endblock %}

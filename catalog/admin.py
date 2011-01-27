@@ -1,14 +1,17 @@
 from django.contrib import admin
 
-from catalog.models import Headphones, HeadphonesCategory, Brand, HeadPhonesPhoto
+from catalog.models import Products, ProductsPhoto, Categories, Brands, Sections, Features, FeaturesName
 
 class PhotoInline(admin.StackedInline):
-    model = HeadPhonesPhoto
+    model = ProductsPhoto
 
-admin.site.register(HeadPhonesPhoto)
+class FeaturesInline(admin.StackedInline):
+    model = Features
 
-class HeadphonesAdmin(admin.ModelAdmin):
-    inlines = [PhotoInline]
+admin.site.register(ProductsPhoto)
+
+class ProductsAdmin(admin.ModelAdmin):
+    inlines = [PhotoInline, FeaturesInline]
     list_display = ('name', 'price', 'created_at', 'updated_at',)
     list_display_links = ('name',)
     list_per_page = 50
@@ -16,9 +19,9 @@ class HeadphonesAdmin(admin.ModelAdmin):
     search_fields = ['name', 'description']
     prepopulated_fields = {'slug' : ('name',)}
 
-admin.site.register(Headphones, HeadphonesAdmin)
+admin.site.register(Products, ProductsAdmin)
 
-class HeadphonesCategoryadmin(admin.ModelAdmin):
+class CategoriesAdmin(admin.ModelAdmin):
     list_display = ('name', 'created_at', 'updated_at',)
     list_display_links = ('name',)
     list_per_page = 20
@@ -26,9 +29,16 @@ class HeadphonesCategoryadmin(admin.ModelAdmin):
     search_fields = ['name', 'description',]
     prepopulated_fields = {'slug' : ('name',)}
 
-admin.site.register(HeadphonesCategory, HeadphonesCategoryadmin)
+admin.site.register(Categories, CategoriesAdmin)
 
-class BrandAdmin(admin.ModelAdmin):
+class BrandsAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug' : ('name',)}
 
-admin.site.register(Brand, BrandAdmin)
+admin.site.register(Brands, BrandsAdmin)
+
+class SectionsAdmin(admin.ModelAdmin):
+        prepopulated_fields = {'slug' : ('name',)}
+
+admin.site.register(Sections, SectionsAdmin)
+
+admin.site.register(FeaturesName)

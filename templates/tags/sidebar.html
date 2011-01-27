@@ -11,13 +11,14 @@
     </div>
     <div class="sidebar_body">
         <div style="margin-left: 25px; padding-top: 20px;">
+        {% for section in sections %}
             <div class="menu_cat">
                 <h2>
-                    НАУШНИКИ
+                    {{ section.name}}
                 </h2>
                 <div style="margin-top: 10px;">
                     <ul class="sidebar_menu">
-                        {% for category in active_categories %}
+                        {% for category in section.categories_set.all %}
                             <li>
                                 <a href="{{ category.get_absolute_url }}" title="">{{ category.name }}</a>
                             </li>
@@ -25,6 +26,7 @@
                     </ul>
                 </div>
             </div>
+        {% endfor %}
         </div>
     </div>
     <div class="sidebar_footer">

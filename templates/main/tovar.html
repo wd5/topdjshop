@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+{% load catalog_filters %}
+
+{% block site_wrapper %}
+<div id="wrapper" class="clearfix">
+    <div id="sidebar" class="column">
+        {% category_list request.path %}
+    </div>
+    <div id="content" class="column">
+        <div class="header">
+            {% include 'tags/header.html' %}
+        </div>
+        <div class="menu">
+            {% include 'tags/menu.html' %}
+        </div>
+
+        <div class="under_menu">
+            <div class="under_menu_left">
+                <div class="under_menu_left_inner">
+                </div>
+            </div>
+            <div class="under_menu_right">
+                <div class="under_menu_right_left">
+                </div>
+                <div class="under_menu_right_right">
+                </div>
+                <div class="under_block_desc" style="width: 100%; height: 40px;">
+                    <div class="navigate_bar" style="width: 100%; height: 40px; display: table-cell;vertical-align:middle;">
+                        <div class="navigate_bar_items navigate_bar_cat">ГЛАВНАЯ СТРАНИЦА</div>
+                        <div class="navigate_bar_items navigate_bar_arrow"></div>
+                        <div class="navigate_bar_items navigate_bar_cat">НАУШНИКИ</div>
+                        <div class="navigate_bar_items navigate_bar_arrow"></div>
+                        <div class="navigate_bar_items navigate_bar_item">ВСЕ НАУШНИКИ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="top_content">
+            <div class="top_content_left">
+                <div class="top_content_left_inner">
+                </div>
+            </div>
+            <div class="top_content_right">
+                <div class="top_panel">
+                    <div class="top_panel_left">
+                    </div>
+                    <div class="top_panel_right">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top_content_body">
+            <div class="top_content_body_left">
+                <div class="top_content_body_left_inner">
+                    <div class="loop_right">
+                    </div>
+                </div>
+            </div>
+            <div class="top_content_body_right">
+                <div class="content_body">
+                    <div class="content_body_border_left">
+                        <div class="content_body_border_left_inner">
+                        </div>
+                    </div>
+                    <div class="content_body_center">
+                        <h1 class="block_title">
+                            {{ product.name }}
+                        </h1>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td width="100%">
+                                    <div class="market_wrapper">
+                                        <center>
+                                            {% if photo %}
+                                            <a href="{{ photo.image.url }}" title="Pioneer CDJ-900"><img class="marketfull_image" src="{{ photo.image.url }}" alt="Товар 2" /></a>
+                                            {% else %}
+                                                Фото товара отсутствует
+                                            {% endif %}
+                                        </center>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="content_body_border_right">
+                        <div class="content_body_border_right_inner">
+                        </div>
+                    </div>
+                <div class="content_body">
+                    <div class="content_body_border_left">
+                        <div class="content_body_border_left_inner">
+                        </div>
+                    </div>
+                    <div class="content_body_center">
+                        <div class="tov_desc">
+                            {{ product.mini_description }}
+                        </div>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td width="50%" style="padding-left: 15px; padding-right: 15px;">
+                                    <table width="100%" border="0" cellpadding="0" cellspacing="0" >
+                                        <tr>
+                                           <td class="tov_key">
+                                               Вид
+                                            </td>
+                                            <td class="tov_val">
+                                                {{ product.category }}
+                                            </td>
+                                        </tr>
+                                    {% if features %}
+                                        {% for feature in features %}
+                                        <tr>
+                                           <td class="tov_key">
+                                               {{ feature.name }}
+                                            </td>
+                                            <td class="tov_val">
+                                                {{ feature.value }}
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    {% endif %}
+                                    </table>
+                                </td>
+                                <td width="50%" style="padding-left: 15px; padding-right: 15px;">
+                                    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td class="tov_key">
+                                                Длина провода
+                                            </td>
+                                            <td class="tov_val">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tov_key">
+                                                Особенности
+                                            </td>
+                                            <td class="tov_val">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="content_body_border_right">
+                        <div class="content_body_border_right_inner">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top_content_bottom">
+            <div class="top_content_bottom_left">
+                <div class="top_content_bottom_left_inner">
+                </div>
+            </div>
+            <div class="top_content_bottom_right">
+                <div class="bottom_panel">
+                    <div class="bottom_panel_left">
+                    </div>
+                    <div class="bottom_panel_right">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom_page">
+            <h1 class="market_desc_header" style="margin-top:25px;">
+                Описание
+            </h1>
+            <div class="market_desc">
+                {{ product.html_description|safe }}
+            </div>
+            {% include "tags/footer.html" %}
+        </div>
+    </div>
+</div>
+{% endblock %}

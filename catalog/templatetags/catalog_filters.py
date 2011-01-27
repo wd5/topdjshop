@@ -1,12 +1,12 @@
 from django import template
-from catalog.models import HeadphonesCategory
+from catalog.models import Sections
 
 register = template.Library()
 
 @register.inclusion_tag("tags/sidebar.html")
 def category_list(request_path):
-    active_categories = HeadphonesCategory.objects.filter(is_active=True)
+    active_sections = Sections.objects.all()
     return {
-        'active_categories': active_categories,
-        'request_path': request_path
+        'request_path': request_path,
+        'sections': active_sections
 }
