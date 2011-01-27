@@ -1,0 +1,18 @@
+          # -*- coding: utf-8 -*-
+from django.conf.urls.defaults import *
+import settings
+
+from django.contrib import admin
+admin.autodiscover()
+
+urlpatterns = patterns('',
+    (r'^', include('topdjshop.catalog.urls')),
+    (r'^admin/', include(admin.site.urls)),
+)
+
+if settings.DEBUG:
+    urlpatterns += patterns ('',
+          # Статика для тестового веб сервера
+        (r'^static/(?P<path>.*)$', 'django.views.static.serve',
+            { 'document_root': '/Users/freebsdstuff/PycharmProjects/topdjshop/static'}),
+    )

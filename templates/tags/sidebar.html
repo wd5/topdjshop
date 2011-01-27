@@ -1,0 +1,32 @@
+<div class="sidebar_inner">
+    <div class="logo">
+        <a href="/" title="Главная страница"></a>
+    </div>
+    <div class="search_block">
+        <form action="" method="">
+            <input class="search_field" type="text" name="search" value="Введите слово для поиска..." />
+        </form>
+    </div>
+    <div class="under_search_block">
+    </div>
+    <div class="sidebar_body">
+        <div style="margin-left: 25px; padding-top: 20px;">
+            <div class="menu_cat">
+                <h2>
+                    НАУШНИКИ
+                </h2>
+                <div style="margin-top: 10px;">
+                    <ul class="sidebar_menu">
+                        {% for category in active_categories %}
+                            <li>
+                                <a href="{{ category.get_absolute_url }}" title="">{{ category.name }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar_footer">
+    </div>
+</div>
