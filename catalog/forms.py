@@ -26,3 +26,15 @@ class ProductAddToCartForm(forms.Form):
             if not self.request.session.test_cookie_worked():
                 raise forms.ValidationError("Cookies must be enabled.")
         return self.cleaned_data
+
+class OrderForm(forms.Form):
+    name = forms.CharField(label='Имя*')
+    surname = forms.CharField(required=False, label='Фамилия')
+    patronymic = forms.CharField(required=False, label='Отчество')
+    city = forms.CharField(required=False, label='Город')
+    postcode = forms.IntegerField(required=False, label='Индекс')
+    phone = forms.IntegerField(label='Телефон*')
+    # Адрес
+    address = forms.CharField(required=False, widget=forms.Textarea(attrs={'rows':'2'}), label='Адрес')
+    # E-mail
+    email = forms.EmailField(required=False)

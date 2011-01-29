@@ -1,4 +1,4 @@
-from models import CartItem, Products
+from models import CartItem, Clients
 from catalog.models import *
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
@@ -95,3 +95,14 @@ def cart_subtotal(request):
     for cart_item in cart_products:
         cart_total += cart_item.product.price * cart_item.quantity
     return cart_total
+
+def save_client(request):
+    postdata = request.POST.copy()
+    cart_id = _cart_id(request)
+    cart = get_object_or_404(CartItem, cart_id=cart_id)
+
+    ci = Clients()
+    ci.cart = cart
+    ci.name = postdata.get('name')
+    ci.phone = postdata.get('phone')
+    ci.save()

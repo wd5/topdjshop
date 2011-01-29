@@ -26,3 +26,14 @@ class CartItem(models.Model):
     def augment_quantity(self, quantity):
         self.quantity = self.quantity + int(quantity)
         self.save()
+
+class Clients(models.Model):
+    name = models.CharField(max_length=50)
+    surname = models.CharField(max_length=50, null=True, blank=True)
+    patronymic = models.CharField(max_length=50, null=True, blank=True)
+    city = models.CharField(max_length=50, null=True, blank=True)
+    postcode = models.IntegerField(null=True, blank=True)
+    phone = models.IntegerField()
+    address = models.CharField(max_length=50, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
+    cart = models.ForeignKey(CartItem)

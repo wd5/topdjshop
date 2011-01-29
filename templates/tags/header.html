@@ -1,3 +1,4 @@
+{% load catalog_filters %}
 <div class="header_space_left">
     <div class="header_space_left_inner">
     </div>
@@ -25,12 +26,7 @@
             </h2>
         </div>
         <div class="bascet_body">
-            <div class="in_bascet">
-                В вашей корзине <b class="num_market">3</b> товар (а)
-            </div>
-            <center style="padding-top: 5px; padding-bottom: 5px;">
-                <a href="" title="сделать заказ"><img src="{{ MEDIA_URL }}images/make_order.png" alt="сделать заказ" /></a>
-            </center>
+            {% cart_box request %}
         </div>
         <div class="bascet_footer">
             <center>
