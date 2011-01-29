@@ -8,6 +8,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^', include('topdjshop.catalog.urls')),
+    (r'^cart/', include('topdjshop.cart.urls')),
     (r'^admin/', include(admin.site.urls)),
 )
 

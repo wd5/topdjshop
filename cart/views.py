@@ -1,5 +1,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.http import HttpResponseRedirect
+from django.core import urlresolvers
 import cart
 
 def show_cart(request, template_name="cart/cart.html"):
@@ -9,6 +11,9 @@ def show_cart(request, template_name="cart/cart.html"):
             cart.remove_from_cart(request)
         if postdata['submit'] == 'Update':
             cart.update_cart(request)
+        if postdata['submit'] == 'Good':
+            return HttpResponseRedirect('/')
+
     cart_items = cart.get_cart_items(request)
     page_title = 'Shopping Cart'
     cart_subtotal = cart.cart_subtotal(request)

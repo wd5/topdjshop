@@ -63,11 +63,13 @@
                                     <div class="market_wrapper">
                                         <center>
                                             <a href="{{ item.get_absolute_url }}" title="{{ item.name }}"><img class="market_image" src="{{ item.productsphoto_set.all.0.image.thumb_url }}" alt="{{ item.name }}" /></a>
-                                            <a class="market_name" href="{{ MEDIA_URL }}" title="{{ item.name }}"><span>{{ item.brand }} {{ item.name }}</span></a>
+                                            <a class="market_name" href="{{ item.get_absolute_url }}" title="{{ item.name }}"><span>{{ item.brand }} {{ item.name }}</span></a>
                                             <span class="market_price">{{ item.price }} руб.</span>
                                             <p class="market_desc">
                                                <i> {{ item.mini_description }} </i>
                                             </p>
+                                            <form method="post" action="." class="cart">
+                                            <div class="cb"></div>
                                             <a class="add_to_basket_link" href="to_basket" title="Добавить в корзину"><img class="add_to_basket" src="{{ MEDIA_URL }}images/to_basket.png" alt="Кнопка добавить в корзину" /></a>
                                         </center>
                                     </div>

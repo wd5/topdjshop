@@ -1,4 +1,4 @@
-from models import CartItem
+from models import CartItem, Products
 from catalog.models import *
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
@@ -39,9 +39,10 @@ def add_to_cart(request):
     # get product slug from post data, return blank if empty
     product_slug = postdata.get('product_slug','')
     # get quantity added, return 1 if empty
-    quantity = postdata.get('quantity',1)
+#    quantity = postdata.get('quantity',1)
+    quantity = 1
     # fetch the product or return a missing page error
-    p = get_object_or_404(Product, slug=product_slug)
+    p = get_object_or_404(Products, slug=product_slug)
     #get products_image in cart
     cart_products = get_cart_items(request)
     product_in_cart = False
