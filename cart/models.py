@@ -37,3 +37,4 @@ class Clients(models.Model):
     address = models.CharField(max_length=50, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
     cart = models.ForeignKey(CartItem)
+    referer = models.URLField()

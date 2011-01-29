@@ -105,4 +105,5 @@ def save_client(request):
     ci.cart = cart
     ci.name = postdata.get('name')
     ci.phone = postdata.get('phone')
+    ci.referer = request.META.get('HTTP_REFERER')
     ci.save()

@@ -8,9 +8,9 @@ from django.http import HttpResponseRedirect
 from cart import cart
 
 def index(request):
-    # На главную отдаю только последние тавара со спец ценой
+    # На главную отдаю только последние 3 тавара со спец ценой
     special_prices = Products.objects.filter(is_special_price=True)[0:3]
-    # На главную отдаю только последние тавара бестселлера
+    # На главную отдаю только последние 3 тавара бестселлера
     bestsellers = Products.objects.filter(is_bestseller=True)[0:3]
     return render_to_response('main/index.html', locals(), context_instance=RequestContext(request))
 
