@@ -186,7 +186,7 @@
 									<td class="content_body_center">
                                     {% if cart_items %}
 										<h1 class="block_title">
-											ВАШ ЗАКАЗ
+											Ваша корзина
 										</h1>
 										<table width="90%" border="0" cellpadding="0" cellspacing="0" style="margin-left: 5%; margin-top: 15px;">
 											<tr class="header_table">
@@ -218,7 +218,7 @@
                                                     <input type="text" name="quantity" value="{{ item.quantity }}" id="quantity"
                                                            size="2" class="quantity" maxlength="5" />
                                                     <input type="hidden" name="item_id" value="{{ item.id }}" />
-                                                    <input type="submit" name="submit" value="Update"/>
+                                                    <input type="submit" name="Update" value=""/>
                                                     </form>
 												</td>
 												<td>
@@ -227,7 +227,7 @@
 												<td>
                                                     <form method="post" action="." class="cart"> {% csrf_token %}
                                                         <input type="hidden" name="item_id" value="{{ item.id }}" />
-                                                        <input type="submit" name="submit" value="Remove"/>
+                                                        <input type="submit" name="Remove" value=""/>
                                                     </form>
 												</td>
 											</tr>
@@ -253,9 +253,9 @@
 												</td>
 											</tr>
                                             <form method="post" action="." class="cart"> {% csrf_token %}
-                                                {{ form.as_p }}
+                                                {{ form.as_table }}
                                                 <br />
-                                                <input type="submit" value="Add To Cart" name="submit" alt="Add To Cart" />
+                                                <input type="submit" value="Add To Cart" name="Good" alt="Add To Cart" />
                                             </form>
                                     {% else %}{% if is_order %}
                                         Спасибо за заказ, наш менеджер с вами свяжется

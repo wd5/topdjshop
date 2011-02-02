@@ -72,6 +72,9 @@
                                 <td width="100%">
                                     <div class="market_wrapper">
                                         <center>
+                                            {% for item in product.productsphoto_set.all %}
+                                                {{ item.image.url }}
+                                            {% endfor %}
                                             {% if product.productsphoto_set.all.0.image.url %}
                                             <a href="{{ product.productsphoto_set.all.0.image.url }}" title="Pioneer CDJ-900"><img class="marketfull_image" src="{{ product.productsphoto_set.all.0.image.url }}" alt="Товар 2" /></a>
                                             {% else %}

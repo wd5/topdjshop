@@ -16,7 +16,7 @@ def index(request):
 
 def show_category(request, category_slug):
     category = get_object_or_404(Categories, slug=category_slug)
-    products = category.products_set.all()
+    products = category.products_set.filter(is_active=True)
     return render_to_response("main/catalog.html", locals(), context_instance=RequestContext(request))
 
 def show_product(request, product_slug):

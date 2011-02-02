@@ -9,12 +9,10 @@ def show_cart(request, template_name="cart/cart.html"):
         postdata = request.POST.copy()
         form = OrderForm(postdata)
 
-        if postdata['submit'] == 'Remove':
+        if 'Remove' in postdata:
             cart.remove_from_cart(request)
-        if postdata['submit'] == 'Update':
+        if 'Update' in postdata:
             cart.update_cart(request)
-        if postdata['submit'] == 'Good':
-            return HttpResponseRedirect('/')
         if form.is_valid():
             cart.save_client(request)
             del request.session['cart_id']

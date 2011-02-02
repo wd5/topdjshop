@@ -56,11 +56,12 @@ class Products(models.Model):
     is_active = models.BooleanField(default=True)
     is_bestseller = models.BooleanField(default=False)
     is_special_price = models.BooleanField(default=False)
+#    is_discount = models.BooleanField(default=True)
     # Временные отметки
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     html_description = models.TextField()
-    mini_description = models.CharField(max_length=200)
+    mini_description = models.CharField(max_length=140)
 
     def __unicode__(self):
         return self.name
