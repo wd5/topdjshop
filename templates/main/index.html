@@ -1,59 +1,24 @@
 {% extends "base.html" %}
 {% load catalog_filters %}
-
 {% block site_wrapper %}
-<div id="wrapper" class="clearfix">
-    <div id="sidebar" class="column">
-        {% category_list request.path %}
-    </div>
-    <div id="content" class="column">
-        <div class="header">
-            {% include 'tags/header.html' %}
-        </div>
-        <div class="menu">
-            {% include 'tags/menu.html' %}
-        </div>
-        <div class="under_menu">
-            <div class="under_menu_left">
-                <div class="under_menu_left_inner">
-                </div>
-            </div>
-            <div class="under_menu_right">
-                <div class="under_menu_right_left">
-                </div>
-                <div class="under_menu_right_right">
-                </div>
-            </div>
-        </div>
-        <div class="top_content">
-            <div class="top_content_left">
-                <div class="top_content_left_inner">
-                </div>
-            </div>
-            <div class="top_content_right">
-                <div class="top_panel">
-                    <div class="top_panel_left">
-                    </div>
-                    <div class="top_panel_right">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="top_content_body">
-            <div class="top_content_body_left">
-                <div class="top_content_body_left_inner">
-                    <div class="loop_right">
-                    </div>
-                </div>
-            </div>
-            <div class="top_content_body_right">
-                <div class="content_body">
-                    <div class="content_body_border_left">
-                        <div class="content_body_border_left_inner">
-                        </div>
-                    </div>
-                    <div class="content_body_center">
-                        <h1 class="block_title">
+<div id="wrapper">
+	<div id="sidebar" class="alignleft">
+		{% category_list request.path %}
+	</div>
+	<div id="rightblock" class="alignleft">
+		<div id="header" class="alignleft">
+			{% include 'tags/header.html' %}
+		</div>
+		<div class="clr"></div>
+			<div id="content"  class="alignleft">
+			<div id="contents_margin"  class="alignleft">
+				<div class="specialprice_box alignleft">
+					<div class="mounts alignleft">
+						<div class="right_mount alignleft">
+						</div>
+					</div>
+					<div class="special_blocks alignleft">
+						<h1 class="title">
                             Специальная цена
                         </h1>
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -63,98 +28,36 @@
                                     <div class="market_wrapper">
                                         <center>
                                             <a href="{{ item.get_absolute_url }}" title="{{ item.name }}"><img class="market_image" src="{{ item.productsphoto_set.all.0.image.thumb_url }}" alt="{{ item.name }}" /></a>
-                                            <a class="market_name" href="{{ item.get_absolute_url }}" title="{{ item.name }}"><span>{{ item.brand }} {{ item.name }}</span></a>
-                                            <span class="market_price">{{ item.price }} руб.</span>
+                                             <p><a class="market_name" href="{{ item.get_absolute_url }}" title="{{ item.name }}"><span>{{ item.brand }} {{ item.name }}</span></a></p>
+                                            <p class="market_price">{{ item.price }} руб.</p>
                                             <p class="market_desc">
-                                               <i> {{ item.mini_description }} </i>
+                                               {{ item.mini_description }}
                                             </p>
-                                            <form method="post" action="." class="cart">
-                                            <div class="cb"></div>
-                                            <a class="add_to_basket_link" href="to_basket" title="Добавить в корзину"><img class="add_to_basket" src="{{ MEDIA_URL }}images/to_basket.png" alt="Кнопка добавить в корзину" /></a>
-                                        </center>
+                       			        </center>
                                     </div>
                                 </td>
                             {% endfor %}
                             </tr>
                         </table>
-                    </div>
-                    <div class="content_body_border_right">
-                        <div class="content_body_border_right_inner">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="top_content_bottom">
-            <div class="top_content_bottom_left">
-                <div class="top_content_bottom_left_inner">
-                </div>
-            </div>
-            <div class="top_content_bottom_right">
-                <div class="bottom_panel">
-                    <div class="bottom_panel_left">
-                    </div>
-                    <div class="bottom_panel_right">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="under_menu">
-            <div class="under_menu_left">
-                <div class="under_menu_left_inner_none">
-                </div>
-            </div>
-            <div class="under_menu_right">
-                <div class="under_menu_right_left_none">
-                </div>
-                <div class="under_menu_right_right">
-                </div>
-                <div class="under_block_desc">
-                    <div class="under_block_desc_left">
-                        <div class="under_block_desc_left_inner">
-                        </div>
-                    </div>
-                    <div class="under_block_desc_center">
-                        Все товары по специальной цене
-                    </div>
-                    <div class="under_block_desc_right">
-                        <div class="under_block_desc_right_inner">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="top_content">
-            <div class="top_content_left">
-                <div class="top_content_left_inner" style="background: none;">
-                </div>
-            </div>
-            <div class="top_content_right">
-                <div class="top_panel">
-                    <div class="top_panel_left">
-                    </div>
-                    <div class="top_panel_right">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="top_content_body">
-            <div class="top_content_body_left">
-                <div class="top_content_body_left_inner">
-                    <div class="loop_right" style="background: none;">
-                    </div>
-                </div>
-            </div>
-            <div class="top_content_body_right">
-                <div class="content_body">
-                    <div class="content_body_border_left">
-                        <div class="content_body_border_left_inner">
-                        </div>
-                    </div>
-                    <div class="content_body_center">
-                        <h1 class="block_title">
+					</div>
+					<div class="redlable_box">
+						<div class="redlable">
+							<div class="redlable_right">
+								<div class="redlable_inner">
+									<a href="#"> Все товары по специальной цене</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clr"></div>
+				<div class="specialprice_box alignleft" >
+					<div class="mounts alignleft">
+						<div class="right_mount alignleft">
+						</div>
+					</div>
+					<div  class="special_blocks alignleft">
+                        <h1 class="title">
                              Лидеры продаж
                         </h1>
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -164,74 +67,55 @@
                                     <div class="market_wrapper">
                                         <center>
                                             <a href="{{ item.get_absolute_url }}" title="{{ item.name }}"><img class="market_image" src="{{ item.productsphoto_set.all.0.image.thumb_url }}" alt="{{ item.name }}" /></a>
-                                            <a class="market_name" href="{{ MEDIA_URL }}" title="{{ item.name }}"><span>{{ item.brand }} {{ item.name }}</span></a>
-                                            <span class="market_price">{{ item.price }} руб.</span>
+                                            <p><a class="market_name" href="{{ item.get_absolute_url }}" title="{{ item.name }}"><span>{{ item.brand }} {{ item.name }}</span></a></p>
+                                            <p class="market_price">{{ item.price }} руб.</p>
                                             <p class="market_desc">
                                                 {{ item.mini_description }}
                                             </p>
-                                            <a class="add_to_basket_link" href="to_basket" title="Добавить в корзину"><img class="add_to_basket" src="{{ MEDIA_URL }}images/to_basket.png" alt="Кнопка добавить в корзину" /></a>
                                         </center>
                                     </div>
                                 </td>
                             {% endfor %}
                             </tr>
                         </table>
-                    </div>
-                    <div class="content_body_border_right">
-                        <div class="content_body_border_right_inner">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="top_content_bottom">
-            <div class="top_content_bottom_left">
-                <div class="top_content_bottom_left_inner">
-                </div>
-            </div>
-            <div class="top_content_bottom_right">
-                <div class="bottom_panel">
-                    <div class="bottom_panel_left">
-                    </div>
-                    <div class="bottom_panel_right">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="under_menu">
-            <div class="under_menu_left">
-                <div class="under_menu_left_inner_none">
-                </div>
-            </div>
-            <div class="under_menu_right">
-                <div class="under_block_desc" style="width:20%;">
-                    <div class="under_block_desc_left">
-                        <div class="under_block_desc_left_inner">
-                        </div>
-                    </div>
-                    <div class="under_block_desc_center">
-                        Все лидеры
-                    </div>
-                    <div class="under_block_desc_right">
-                        <div class="under_block_desc_right_inner">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="bottom_page">
-            <h1 class="market_desc_header">
+					</div>
+					<div class="redlable_box">
+						<div class="redlable">
+							<div class="redlable_right">
+								<div class="redlable_inner">
+									<a href="#"> Все лидеры</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+
+			</div>
+		</div>
+	</div>
+
+
+					<div class="seo_colum alignleft" >
+			<h1 class="seo_header">
                 SEO колонка
             </h1>
-            <div class="market_desc">
+            <div class="seo_desc">
                 <p>
                     Ultrices nascetur! Habitasse, dis vel tincidunt ultrices placerat et turpis diam elementum adipiscing. Dolor facilisis nascetur nec odio, etiam rhoncus, tincidunt porttitor integer nascetur! Eu amet cras urna lorem vel pulvinar natoque, nec, mauris elementum magnis, parturient massa duis turpis in augue amet! Nec mattis enim nunc tincidunt, quis a! Lectus pulvinar, nunc rhoncus, augue velit ultricies non, cras magna nunc tincidunt aliquam dictumst, in ridiculus. Nascetur magna magna dolor! Arcu habitasse, in nisi, tortor, porta phasellus ac in adipiscing montes phasellus placerat dolor scelerisque, pid non augue elementum quis, ut ac non habitasse non est hac et integer egestas tortor cras phasellus risus nisi, elementum ridiculus, magnis porta, et magna massa est et dapibus tortor. Ut duis habitasse sociis.
                 </p>
                 <p>
                     Ultrices nascetur! Habitasse, dis vel tincidunt ultrices placerat et turpis diam elementum adipiscing. Dolor facilisis nascetur nec odio, etiam rhoncus, tincidunt porttitor integer nascetur! Eu amet cras urna lorem vel pulvinar natoque, nec, mauris elementum magnis, parturient massa duis turpis in augue amet! Nec mattis enim nunc tincidunt, quis a! Lectus pulvinar, nunc rhoncus, augue velit ultricies non, cras magna nunc tincidunt aliquam dictumst, in ridiculus. Nascetur magna magna dolor! Arcu habitasse, in nisi, tortor, porta phasellus ac in adipiscing montes phasellus placerat dolor scelerisque, pid non augue elementum quis, ut ac non habitasse non est hac et integer egestas tortor cras phasellus risus nisi, elementum ridiculus, magnis porta, et magna massa est et dapibus tortor. Ut duis habitasse sociis.
                 </p>
-        </div>
-     {% include "tags/footer.html" %}
-    </div>
-<div id="ears_here"></div>
+					
+				</div>
+			<div>
+			</div>
+			</div>
+			
+<div class="clr"></div>
+ {% include "tags/footer.html" %}
+</div>
+
 {% endblock %}
+
+

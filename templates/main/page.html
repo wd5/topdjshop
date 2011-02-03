@@ -10,44 +10,11 @@
 			{% include 'tags/header.html' %}
 		</div>
 		<div class="clr"></div>
-			<div id="content"  class="alignleft">
+		<div id="content"  class="alignleft">
+
 			<div id="contents_margin"  class="alignleft">
-				<div class="specialprice_box alignleft">
-					<div class="mounts alignleft">
-						<div class="right_mount alignleft">
-						</div>
-					</div>
-					<div class="special_blocks alignleft">
-						<h1 class="title">
-                            {{ category.section }} - {{ category.name }}
-                        </h1>
-                        <div class="catalog alignleft">
-                            {% for product in products %}
-                                <div class="cat_item alignleft">
-                                    <div class="market_wrapper">
-                                        <center>
-                                            <a href="{{ product.get_absolute_url }}" title="{{ product.name }}"><img class="market_image" src="{{ product.productsphoto_set.all.0.image.thumb_url }}" alt="{{ product.name }}" /></a>
-                                             <p><a class="market_name" href="{{ product.get_absolute_url }}" title="{{ product }}"><span>{{ product.brand }} {{ product.name }}</span></a></p>
-                                            <p class="market_price">{{ product.price }} руб.</p>
-                                            <p class="market_desc">
-                                               {{ product.mini_description }}
-                                            </p>
-                       			        </center>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-					</div>
-				</div>
-				<div class="clr"></div>
 
-
-			</div>
-		</div>
-	</div>
-
-
-					<div class="seo_colum alignleft" >
+		<div class="static alignleft" >
 			<h1 class="seo_header">
                 SEO колонка
             </h1>
@@ -69,3 +36,5 @@
 </div>
 
 {% endblock %}
+
+

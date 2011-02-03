@@ -1,115 +1,61 @@
 {% extends "base.html" %}
 {% load catalog_filters %}
-
 {% block site_wrapper %}
-<div id="wrapper" class="clearfix">
-    <div id="sidebar" class="column">
-        {% category_list request.path %}
-    </div>
-    <div id="content" class="column">
-        <div class="header">
-            {% include 'tags/header.html' %}
-        </div>
-        <div class="menu">
-            {% include 'tags/menu.html' %}
-        </div>
+				<div id="img_full" style="text-align:right;">
+					<center>
+					<div id="img_full_in">
+					<a id='close' href="#">Закрыть</a>
+						{% if product.productsphoto_set.all.0.image.url %}
+                                            <a href="{{ product.productsphoto_set.all.0.image.url }}" title="Pioneer CDJ-900"><img class="main_img_tov" class="marketfull_image" src="{{ product.productsphoto_set.all.0.image.url }}" alt="Товар 2" height="400px" /></a>
+                                            {% else %}
+                                                Фото товара отсутствует
+                                            {% endif %}     
+                                            <div class="clr"></div>                                  
+					{% for item in product.productsphoto_set.all %}
+						<img class="prew_img_tov" src="{{ item.image.url }}" height="150px"/>
+						
+					{% endfor %}
+					
+					</div>
+					</center>
+				</div>
+<div id="wrapper">
+	<div id="sidebar" class="alignleft">
+		{% category_list request.path %}
+	</div>
+	<div id="rightblock" class="alignleft">
+		<div id="header" class="alignleft">
+			{% include 'tags/header.html' %}
+		</div>
+		<div class="clr"></div>
+			<div id="content"  class="alignleft">
 
-        <div class="under_menu">
-            <div class="under_menu_left">
-                <div class="under_menu_left_inner">
-                </div>
-            </div>
-            <div class="under_menu_right">
-                <div class="under_menu_right_left">
-                </div>
-                <div class="under_menu_right_right">
-                </div>
-                <div class="under_block_desc" style="width: 100%; height: 40px;">
-                    <div class="navigate_bar" style="width: 100%; height: 40px; display: table-cell;vertical-align:middle;">
-                        <div class="navigate_bar_items navigate_bar_cat">ГЛАВНАЯ СТРАНИЦА</div>
-                        <div class="navigate_bar_items navigate_bar_arrow"></div>
-                        <div class="navigate_bar_items navigate_bar_cat">НАУШНИКИ</div>
-                        <div class="navigate_bar_items navigate_bar_arrow"></div>
-                        <div class="navigate_bar_items navigate_bar_item">ВСЕ НАУШНИКИ</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="top_content">
-            <div class="top_content_left">
-                <div class="top_content_left_inner">
-                </div>
-            </div>
-            <div class="top_content_right">
-                <div class="top_panel">
-                    <div class="top_panel_left">
-                    </div>
-                    <div class="top_panel_right">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="top_content_body">
-            <div class="top_content_body_left">
-                <div class="top_content_body_left_inner">
-                    <div class="loop_right">
-                    </div>
-                </div>
-            </div>
-            <div class="top_content_body_right">
-                <div class="content_body">
-                    <div class="content_body_border_left">
-                        <div class="content_body_border_left_inner">
-                        </div>
-                    </div>
-                    <div class="content_body_center">
-                        <h1 class="block_title">
+			<div id="contents_margin"  class="alignleft">
+				<div class="specialprice_box alignleft full_width">
+					<div class="mounts alignleft">
+						<div class="right_mount alignleft">
+						</div>
+					</div>
+					<div class="special_blocks tov_block alignleft">
+						<h1 class="title">
                             {{ product.name }}
                         </h1>
-                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                            <tr>
-                                <td width="100%">
-                                    <div class="market_wrapper">
-                                        <center>
-                                            {% for item in product.productsphoto_set.all %}
-                                                {{ item.image.url }}
-                                            {% endfor %}
-                                            {% if product.productsphoto_set.all.0.image.url %}
-                                            <a href="{{ product.productsphoto_set.all.0.image.url }}" title="Pioneer CDJ-900"><img class="marketfull_image" src="{{ product.productsphoto_set.all.0.image.url }}" alt="Товар 2" /></a>
+                       
+                        
+ 
+                <div style="width:400px;" class="alignleft">                                       {% if product.productsphoto_set.all.0.image.url %}
+                                            <a id="main_img_tov_link" href="#" title="Pioneer CDJ-900"><img class="main_img_tov" class="marketfull_image" src="{{ product.productsphoto_set.all.0.image.url }}" alt="Товар 2" height="200px" /></a>
                                             {% else %}
                                                 Фото товара отсутствует
                                             {% endif %}
-                                        </center>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="content_body_border_right">
-                        <div class="content_body_border_right_inner">
-                        </div>
-                    </div>
-                <div class="content_body">
-                    <div class="content_body_border_left">
-                        <div class="content_body_border_left_inner">
-                        </div>
-                    </div>
-                    <div class="content_body_center">
-                        <div class="tov_desc">
-                            {{ product.mini_description }}
-                        </div>
-                        <form method="post" action="." class="cart"> {% csrf_token %}
-                            {{ form.as_p }}
-                            <br />
-                            <input type="submit" value="Add To Cart" name="submit" alt="Add To Cart" />
-                        </form>
-                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                            <tr>
-                                <td width="50%" style="padding-left: 15px; padding-right: 15px;">
-                                    <table width="100%" border="0" cellpadding="0" cellspacing="0" >
-                                        <tr>
-                                           <td class="tov_key">
+                                            <div>{% for item in product.productsphoto_set.all %}
+<img class="prew_img_tov" src="{{ item.image.url }}" height="50px"/>
+{% endfor %}</div>
+</div>
+                
+<TABLE border="0" cellpadding="0" cellspacing="0" class="tovar">
+<tr>
+                                              <td class="tov_key" >
                                                Вид
                                             </td>
                                             <td class="tov_val">
@@ -119,69 +65,74 @@
                                     {% if features %}
                                         {% for feature in features %}
                                         <tr>
-                                           <td class="tov_key">
+                                           <td class="tov_key" >
                                                {{ feature.name }}
                                             </td>
                                             <td class="tov_val">
                                                 {{ feature.value }}
                                             </td>
                                         </tr>
+                                        
                                         {% endfor %}
                                     {% endif %}
-                                    </table>
-                                </td>
-                                <td width="50%" style="padding-left: 15px; padding-right: 15px;">
-                                    <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                                        <tr>
-                                            <td class="tov_key">
-                                                Длина провода
-                                            </td>
-                                            <td class="tov_val">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="tov_key">
-                                                Особенности
-                                            </td>
-                                            <td class="tov_val">
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="content_body_border_right">
-                        <div class="content_body_border_right_inner">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="top_content_bottom">
-            <div class="top_content_bottom_left">
-                <div class="top_content_bottom_left_inner">
-                </div>
-            </div>
-            <div class="top_content_bottom_right">
-                <div class="bottom_panel">
-                    <div class="bottom_panel_left">
-                    </div>
-                    <div class="bottom_panel_right">
-                    </div>
-                </div>
-            </div>
-        </div>
+                                    <tr>
+                                    </tr>
 
-        <div class="bottom_page">
-            <h1 class="market_desc_header" style="margin-top:25px;">
-                Описание
+                             
+</TABLE>
+
+                        <TABLE border="0" cellpadding="0" cellspacing="0" class="tovar">
+      					  <tr>
+                                                  
+                                    	<td class="price_box"> 
+                                    	
+                                    	<p class="market_price">{{ product.price }} руб.</p>
+                                    	           <form method="post" action="." class="cart"> {% csrf_token %}
+                         									   {{ form.as_p }}
+                          												  <br />
+                           											 <input id="buy" type="submit" value="Купить" name="submit" alt="Купить" />
+                      							  </form>
+                                  		</td>
+                                  		<td colspan="2">
+                                  		                                     <p class="market_desc">
+                                               {{ product.mini_description }}
+                                            </p>
+                                  		</td>
+                                    </tr>
+             
+</TABLE>
+
+
+
+					</div>
+				</div>
+				<div class="clr"></div>
+			</div>
+		</div>
+	</div>
+
+
+					<div class="seo_colum alignleft" >
+			<h1 class="seo_header">
+                SEO колонка
             </h1>
-            <div class="market_desc">
-                {{ product.html_description|safe }}
-            </div>
-            {% include "tags/footer.html" %}
-        </div>
-    </div>
+            <div class="seo_desc">
+                <p>
+                    Ultrices nascetur! Habitasse, dis vel tincidunt ultrices placerat et turpis diam elementum adipiscing. Dolor facilisis nascetur nec odio, etiam rhoncus, tincidunt porttitor integer nascetur! Eu amet cras urna lorem vel pulvinar natoque, nec, mauris elementum magnis, parturient massa duis turpis in augue amet! Nec mattis enim nunc tincidunt, quis a! Lectus pulvinar, nunc rhoncus, augue velit ultricies non, cras magna nunc tincidunt aliquam dictumst, in ridiculus. Nascetur magna magna dolor! Arcu habitasse, in nisi, tortor, porta phasellus ac in adipiscing montes phasellus placerat dolor scelerisque, pid non augue elementum quis, ut ac non habitasse non est hac et integer egestas tortor cras phasellus risus nisi, elementum ridiculus, magnis porta, et magna massa est et dapibus tortor. Ut duis habitasse sociis.
+                </p>
+                <p>
+                    Ultrices nascetur! Habitasse, dis vel tincidunt ultrices placerat et turpis diam elementum adipiscing. Dolor facilisis nascetur nec odio, etiam rhoncus, tincidunt porttitor integer nascetur! Eu amet cras urna lorem vel pulvinar natoque, nec, mauris elementum magnis, parturient massa duis turpis in augue amet! Nec mattis enim nunc tincidunt, quis a! Lectus pulvinar, nunc rhoncus, augue velit ultricies non, cras magna nunc tincidunt aliquam dictumst, in ridiculus. Nascetur magna magna dolor! Arcu habitasse, in nisi, tortor, porta phasellus ac in adipiscing montes phasellus placerat dolor scelerisque, pid non augue elementum quis, ut ac non habitasse non est hac et integer egestas tortor cras phasellus risus nisi, elementum ridiculus, magnis porta, et magna massa est et dapibus tortor. Ut duis habitasse sociis.
+                </p>
+					
+				</div>
+			<div>
+			</div>
+			</div>
+			
+<div class="clr"></div>
+ {% include "tags/footer.html" %}
 </div>
+
 {% endblock %}
+
+

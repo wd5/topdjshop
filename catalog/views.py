@@ -51,3 +51,7 @@ def show_product(request, product_slug):
     # set test cookie to make sure cookies are enabled
     request.session.set_test_cookie()
     return render_to_response("main/tovar.html", locals(), context_instance=RequestContext(request))
+
+def about(request):
+    return render_to_response('main/page.html', locals(), context_instance=RequestContext(request))
+

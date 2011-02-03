@@ -1,37 +1,25 @@
 {% load catalog_filters %}
-<div class="header_space_left">
-    <div class="header_space_left_inner">
-    </div>
-</div>
-<div class="header_contacts">
-    <div class="header_contacts_title">
-            Интернет-магазин аудио оборудования
-    </div>
-    <div class="header_contacts_space">
-        <h2>(499) <b class="header_contacts_space_big">504-43-89</b></h2>
-    </div>
-    <div class="header_contacts_icqcell">
-        <h2>200-233-273</h2>
-    </div>
-</div>
-<div class="header_space_right">
-    <div class="bascet">
-        <div class="bascet_top">
-            <div class="hello_user_text">
-            Добро пожаловать,<br />
-            <b class="hello_user">пользователь</b>
-            </div>
-            <h2 class="bascet_h">
-                КОРЗИНА
-            </h2>
-        </div>
-        <div class="bascet_body">
-            {% cart_box request %}
-        </div>
-        <div class="bascet_footer">
-            <center>
-                <a class="bascet_links" href="" title="Войти">Войти</a> <b class="bascet_zero">*</b> <a class="bascet_links" href="" title="Регистрация">Регистрация</a>
-            </center>
-        </div>
-    </div>
-</div>
+			<div id="phoneicq" class="alignleft">
+				<h5>Интернет-магазин аудио оборудования</h5>
+				<p id="header_phone"><span>(499)</span> 504-43-89</p>
+				<p id="header_icq">200-233-273</p>
+			</div>
+			<div id="basket" class="alignright">
+				<div id="basket_mounts">
+					<div class="basket_mounts">
+					</div>
+					<!--<p>Добро пожаловать,</p>
+					<p><a href="#">пользователь</a></p>-->
+				</div>
+				<div id="bascket_container">
+					<div id="headphones">
+					</div>
+					<p class="bask">Корзина</p>
+					 {% cart_box request %}
+					<!-- <p class="login"><a href="#">Войти</a> * <a href="#">Регистрация</a></p>-->
+				</div>
+			</div>
+			<div class="clr"></div>
+			<div id="menu" class="alignleft">
+				{% include 'tags/menu.html' %}
+			</div>
