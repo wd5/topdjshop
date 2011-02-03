@@ -6,7 +6,7 @@
 					<div id="img_full_in">
 					<a id='close' href="#">Закрыть</a>
 						{% if product.productsphoto_set.all.0.image.url %}
-                                            <a href="{{ product.productsphoto_set.all.0.image.url }}" title="Pioneer CDJ-900"><img class="main_img_tov" class="marketfull_image" src="{{ product.productsphoto_set.all.0.image.url }}" alt="Товар 2" height="400px" /></a>
+                                            <a href="{{ product.productsphoto_set.all.0.image.url }}" title="{{ page_title }}"><img class="main_img_tov" class="marketfull_image" src="{{ product.productsphoto_set.all.0.image.url }}" alt="{{ page_title }}" height="400px" /></a>
                                             {% else %}
                                                 Фото товара отсутствует
                                             {% endif %}     
@@ -38,13 +38,13 @@
 					</div>
 					<div class="special_blocks tov_block alignleft">
 						<h1 class="title">
-                            {{ product.name }}
+                            {{ product.brand }} {{ product.name }}
                         </h1>
                        
                         
  
                 <div style="width:400px;" class="alignleft">                                       {% if product.productsphoto_set.all.0.image.url %}
-                                            <a id="main_img_tov_link" href="#" title="Pioneer CDJ-900"><img class="main_img_tov" class="marketfull_image" src="{{ product.productsphoto_set.all.0.image.url }}" alt="Товар 2" height="200px" /></a>
+                                            <a id="main_img_tov_link" href="#" title="{{ page_title }}"><img class="main_img_tov" class="marketfull_image" src="{{ product.productsphoto_set.all.0.image.url }}" alt="{{ page_title }}" height="200px" /></a>
                                             {% else %}
                                                 Фото товара отсутствует
                                             {% endif %}

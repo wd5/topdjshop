@@ -22,12 +22,8 @@ def show_category(request, category_slug):
 def show_product(request, product_slug):
     product = get_object_or_404(Products, slug=product_slug)
     photos = product.productsphoto_set.all()
-    try:
-        photo = photos[0]
-    except :
-        pass
-    product_category = product.category.name
     features = product.features_set.all()
+    page_title = str(product.brand) + ' ' + str(product.name)
 
     # evaluate the HTTP method, change as needed
     if request.method == 'POST':

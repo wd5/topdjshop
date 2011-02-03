@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
-        <title>{% block title %}{% if page_title %}{{ page_title }} - {% endif %}
+        <title>{% block title %}{% if page_title %}{{ page_title }}{% endif %}
             {{ site_name }}{% endblock %}</title>
 		<link href="{{ MEDIA_URL }}style.css" type="text/css" rel="stylesheet" />
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">

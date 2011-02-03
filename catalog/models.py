@@ -52,10 +52,10 @@ def validate_even(value):
 
 class Products(models.Model):
     category = models.ForeignKey(Categories, verbose_name='Категория')
+    brand = models.ForeignKey(Brands, verbose_name='Производитель')
     name = models.CharField(max_length=255, unique=True, verbose_name='Название')
     slug = models.SlugField(max_length=255, unique=True, verbose_name='Ссылка')
     price = models.DecimalField(max_digits=9,decimal_places=2, verbose_name='Цена')
-    brand = models.ForeignKey(Brands, verbose_name='Производитель')
     mini_description = models.TextField(validators=[validate_even], help_text='Максимальное количество символов: 140.',
                                         verbose_name='Мини описание')
     html_description = models.TextField(blank=True, verbose_name='Описание', help_text='Описание в HTML')
@@ -81,16 +81,14 @@ class Products(models.Model):
 
 class ProductsPhoto(models.Model):
     item = models.ForeignKey(Products)
-    title = models.CharField(max_length=100)
     image = ThumbnailImageField(upload_to='products_image')
-    caption = models.CharField(max_length=250, blank = True)
 
     class Meta:
-        ordering = ['title']
+        ordering = ['item']
         verbose_name_plural = 'Фото товара'
 
     def __unicode__(self):
-        return self.title
+        return self.item.name
 
     @models.permalink
     def get_absolute_url(self):
@@ -106,6 +104,6 @@ class FeaturesName(models.Model):
         verbose_name_plural = 'Характеристики товара'
 
 class Features(models.Model):
-    name = models.ForeignKey(FeaturesName)
-    value = models.CharField(max_length=50)
+    name = models.ForeignKey(FeaturesName, verbose_name='Характеристика')
+    value = models.CharField(max_length=50, verbose_name='Значение')
     item = models.ForeignKey(Products)
