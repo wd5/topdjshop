@@ -1,6 +1,7 @@
           # -*- coding: utf-8 -*-
 from django.db import models
 from catalog.fields import ThumbnailImageField
+from django.core.exceptions import ValidationError
 
 class Brands(models.Model):
     name = models.CharField(max_length=50, unique=True)
@@ -45,23 +46,27 @@ class Categories(models.Model):
     def get_absolute_url(self):
         return ('catalog-page', [str(self.slug)])
 
+def validate_even(value):
+        if len(value) > 140:
+            raise ValidationError(u'Количество символов: %s. Максимально разрешенное: 140'% len(value) )
+
 class Products(models.Model):
-    category = models.ForeignKey(Categories, verbose_name='category_id')
-    name = models.CharField(max_length=255, unique=True)
-    slug = models.SlugField(max_length=255, unique=True)
-    price = models.DecimalField(max_digits=9,decimal_places=2)
-    # Производитель
-    brand = models.ForeignKey(Brands)
+    category = models.ForeignKey(Categories, verbose_name='Категория')
+    name = models.CharField(max_length=255, unique=True, verbose_name='Название')
+    slug = models.SlugField(max_length=255, unique=True, verbose_name='Ссылка')
+    price = models.DecimalField(max_digits=9,decimal_places=2, verbose_name='Цена')
+    brand = models.ForeignKey(Brands, verbose_name='Производитель')
+    mini_description = models.TextField(validators=[validate_even], help_text='Максимальное количество символов: 140.',
+                                        verbose_name='Мини описание')
+    html_description = models.TextField(blank=True, verbose_name='Описание', help_text='Описание в HTML')
     # Метаданные товара
-    is_active = models.BooleanField(default=True)
-    is_bestseller = models.BooleanField(default=False)
-    is_special_price = models.BooleanField(default=False)
-#    is_discount = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=True, verbose_name='Активный')
+    is_bestseller = models.BooleanField(default=False, verbose_name='Лидер продаж')
+    is_special_price = models.BooleanField(default=False, verbose_name='Специальная цена')
+    is_discount = models.BooleanField(default=True, verbose_name='Скидка')
     # Временные отметки
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    html_description = models.TextField()
-    mini_description = models.CharField(max_length=140)
 
     def __unicode__(self):
         return self.name
