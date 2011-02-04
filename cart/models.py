@@ -32,7 +32,7 @@ class Clients(models.Model):
     surname = models.CharField(max_length=50, null=True, blank=True)
     patronymic = models.CharField(max_length=50, null=True, blank=True)
     city = models.CharField(max_length=50, null=True, blank=True)
-    postcode = models.IntegerField(null=True, blank=True)
+    postcode = models.IntegerField(null=True)
     phone = models.CharField(max_length=20)
     address = models.CharField(max_length=50, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)

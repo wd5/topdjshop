@@ -1,8 +1,9 @@
+          # -*- coding: utf-8 -*-
 from models import CartItem, Clients
 from catalog.models import *
 from django.shortcuts import get_object_or_404
-from django.http import HttpResponseRedirect
-import settings
+from django.core.mail import send_mail
+import threading
 import decimal
 import random
 
@@ -112,3 +113,31 @@ def save_client(request, form):
     ci.address = form.cleaned_data['address']
     ci.email = form.cleaned_data['email']
     ci.save()
+
+def send_admin_email(cart_items, form, cart_subtotal):
+    products_for_email = ""
+    for item in cart_items:
+        products_for_email += u"%s %s:%s шт  http://topdjshop.ru%s\n" % (item.product.brand,
+                                              item.product.name, item.quantity, item.product.get_absolute_url())
+    t = threading.Thread(target= send_mail, args=[
+        u'Заказ от %s %s' % (form.cleaned_data['name'], form.cleaned_data['surname'] ),
+        u'Имя: %s %s %s \nГород: %s\nИндекс: %s\nТелефон: %s\nАдрес: %s\nEmail: %s\n\n%s\nВсего на сумму: %s руб'
+        % (form.cleaned_data['surname'], form.cleaned_data['name'], form.cleaned_data['patronymic'],
+        form.cleaned_data['city'], form.cleaned_data['postcode'], form.cleaned_data['phone'],
+        form.cleaned_data['address'], form.cleaned_data['email'], products_for_email, cart_subtotal),
+        'freebsdstuff@gmail.com', ['freebsdstuff@gmail.com'], 'fail_silently=False'])
+    t.setDaemon(True)
+    t.start()
+
+def send_client_email(cart_items, form, cart_subtotal):
+    products_for_email = ""
+    for item in cart_items:
+        products_for_email += u"%s %s:%s шт  http://topdjshop.ru%s\n" % (item.product.brand,
+                                              item.product.name, item.quantity, item.product.get_absolute_url())
+    t = threading.Thread(target= send_mail, args=[
+        u'Ваш заказ от topdjshop',
+        u'Здравствуйте %s %s\n\nВы оформили у нас заказ на:\n%s\nВсего на сумму: %s руб\n\nВ ближайшее время наш менеджер с вами свяжется.\nС Уважением, topdjshop.ru' %
+        (form.cleaned_data['name'], form.cleaned_data['patronymic'], products_for_email, cart_subtotal ),
+        'freebsdstuff@gmail.com', [form.cleaned_data['email']], 'fail_silently=False'])
+    t.setDaemon(True)
+    t.start()

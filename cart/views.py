@@ -1,16 +1,13 @@
+          # -*- coding: utf-8 -*-
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from catalog.forms import OrderForm
-from django.core.mail import send_mail
 import cart
-import threading
-
-def send_email():
-    send_mail('Subject here', 'Here is the message.', 'freebsdstuff@gmail.com',
-              ['freebsdstuff@gmail.com'], fail_silently=False)
 
 def show_cart(request, template_name="cart/cart.html"):
     if request.method == 'POST':
+        cart_items = cart.get_cart_items(request)
+        cart_subtotal = cart.cart_subtotal(request)
         postdata = request.POST.copy()
         form = OrderForm(postdata)
 
@@ -19,12 +16,14 @@ def show_cart(request, template_name="cart/cart.html"):
         if 'Update' in postdata:
             cart.update_cart(request)
         if form.is_valid():
+            # Пишу клиента в базу
             cart.save_client(request, form)
+            # Удаляю сессию у клиента
             del request.session['cart_id']
             is_order = 1
-            t = threading.Thread(target= send_email)
-            t.setDaemon(True)
-            t.start()
+            cart.send_admin_email(cart_items, form, cart_subtotal)
+            if form.cleaned_data['email']:
+                cart.send_client_email(cart_items, form, cart_subtotal)
     else:
         form = OrderForm()
 
