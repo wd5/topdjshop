@@ -14,7 +14,7 @@ def show_cart(request, template_name="cart/cart.html"):
         if 'Update' in postdata:
             cart.update_cart(request)
         if form.is_valid():
-            cart.save_client(request)
+            cart.save_client(request, form)
             del request.session['cart_id']
             is_order = 1
 
