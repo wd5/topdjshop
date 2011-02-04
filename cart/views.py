@@ -8,6 +8,9 @@ import threading
 def send_email():
     send_mail('Subject here', 'Here is the message.', 'freebsdstuff@gmail.com',
               ['freebsdstuff@gmail.com'], fail_silently=False)
+    i = 1
+    while i:
+        pass
 
 def show_cart(request, template_name="cart/cart.html"):
     if request.method == 'POST':
