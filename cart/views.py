@@ -5,6 +5,10 @@ from django.core.mail import send_mail
 import cart
 import threading
 
+def send_email():
+    send_mail('Subject here', 'Here is the message.', 'freebsdstuff@gmail.com',
+              ['freebsdstuff@gmail.com'], fail_silently=False)
+
 def show_cart(request, template_name="cart/cart.html"):
     if request.method == 'POST':
         postdata = request.POST.copy()
@@ -18,7 +22,7 @@ def show_cart(request, template_name="cart/cart.html"):
             cart.save_client(request, form)
             del request.session['cart_id']
             is_order = 1
-            t = threading.Thread(target=send_mail('Subject here', 'Here is the message.', 'freebsdstuff@gmail.com', ['freebsdstuff@gmail.com'], fail_silently=False))
+            t = threading.Thread(target= send_email())
             t.setDaemon(True)
             t.start()
     else:
