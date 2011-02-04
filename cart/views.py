@@ -17,8 +17,9 @@ def show_cart(request, template_name="cart/cart.html"):
             cart.save_client(request, form)
             del request.session['cart_id']
             is_order = 1
+    else:
+        form = OrderForm()
 
-    form = OrderForm()
     cart_items = cart.get_cart_items(request)
     page_title = 'Shopping Cart'
     cart_subtotal = cart.cart_subtotal(request)
