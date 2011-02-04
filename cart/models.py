@@ -36,5 +36,5 @@ class Clients(models.Model):
     phone = models.IntegerField()
     address = models.CharField(max_length=50, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
-    cart = models.ForeignKey(CartItem)
+    cart = models.CharField(max_length=50)
     referer = models.URLField()

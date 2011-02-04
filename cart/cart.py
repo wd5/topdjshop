@@ -99,10 +99,11 @@ def cart_subtotal(request):
 def save_client(request):
     postdata = request.POST.copy()
     cart_id = _cart_id(request)
-    cart = get_object_or_404(CartItem, cart_id=cart_id)
+#    cart = get_object_or_404(CartItem, cart_id=cart_id)
+#    cart = CartItem.objects.filter(cart_id=cart_id)
 
     ci = Clients()
-    ci.cart = cart
+    ci.cart = cart_id
     ci.name = postdata.get('name')
     ci.phone = postdata.get('phone')
     ci.referer = request.META.get('HTTP_REFERER')
