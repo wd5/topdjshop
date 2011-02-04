@@ -33,7 +33,7 @@ class OrderForm(forms.Form):
     patronymic = forms.CharField(required=False, label='Отчество')
     city = forms.CharField(required=False, label='Город')
     postcode = forms.IntegerField(required=False, label='Индекс')
-    phone = forms.IntegerField(label='Телефон*')
+    phone = forms.CharField(label='Телефон*')
     # Адрес
     address = forms.CharField(required=False, widget=forms.Textarea(attrs={'rows':'2'}), label='Адрес')
     # E-mail
