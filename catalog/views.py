@@ -49,5 +49,10 @@ def show_product(request, product_slug):
     return render_to_response("main/tovar.html", locals(), context_instance=RequestContext(request))
 
 def about(request):
-    return render_to_response('main/page.html', locals(), context_instance=RequestContext(request))
+    return render_to_response('main/about.html', locals(), context_instance=RequestContext(request))
 
+def blog(request):
+    return render_to_response('main/blog.html', locals(), context_instance=RequestContext(request))
+
+def delivery(request):
+    return render_to_response('main/delivery.html', locals(), context_instance=RequestContext(request))

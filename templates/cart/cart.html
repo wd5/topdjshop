@@ -33,7 +33,7 @@
                        		{% for item in cart_items %}
                        		<tr class="basket_table_main">
                        			<td><img src="{{ item.product.productsphoto_set.all.0.image.thumb_url }}" height="100"/></td>
-                       			<td class="basket_table_name"><a href="" title="{{ item.product.name }}" class="basket_market_name">{{ item.product.brand }} {{ item.product.name }}</a></td>
+                       			<td class="basket_table_name"><a href="{{ item.product.get_absolute_url }}" title="{{ item.product.name }}" class="basket_market_name">{{ item.product.brand }} {{ item.product.name }}</a></td>
                        			<td class="basket_table_col"> 
                        			<form method="post" action="." class="cart"> 
                        					{% csrf_token %}
@@ -81,7 +81,7 @@
    						</table>
 
    				    {% else %}{% if is_order %}
-                                        Спасибо за заказ, наш менеджер с вами свяжется
+                                        Спасибо за заказ, в ближайшее время мы с вами свяжемся.
                                     {% else %}
                                         Ваша корзина пуста
                                     {% endif %}{% endif %}

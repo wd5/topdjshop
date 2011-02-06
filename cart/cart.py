@@ -136,8 +136,8 @@ def send_client_email(cart_items, form, cart_subtotal):
                                               item.product.name, item.quantity, item.product.get_absolute_url())
     t = threading.Thread(target= send_mail, args=[
         u'Ваш заказ от topdjshop',
-        u'Здравствуйте %s %s\n\nВы оформили у нас заказ на:\n%s\nВсего на сумму: %s руб\n\nВ ближайшее время наш менеджер с вами свяжется.\nС Уважением, topdjshop.ru' %
-        (form.cleaned_data['name'], form.cleaned_data['patronymic'], products_for_email, cart_subtotal ),
+        u'Здравствуйте %s,\n\nВы оформили у нас заказ на:\n%s\nВсего на сумму: %s руб\n\nВ ближайшее время наш менеджер с вами свяжется.\nС Уважением, topdjshop.ru' %
+        (form.cleaned_data['name'], products_for_email, cart_subtotal ),
         'freebsdstuff@gmail.com', [form.cleaned_data['email']], 'fail_silently=False'])
     t.setDaemon(True)
     t.start()
