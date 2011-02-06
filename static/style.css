@@ -405,6 +405,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 #wrapper .static{
 	margin:40px 0 0 0;
 	position: relative;
+	min-height: 600px;
 }
 #wrapper .seo_header{
 	font-size: 24px;
@@ -420,11 +421,13 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 	text-align:center;
 	margin-bottom: 50px;
 	margin-left:290px;
+	margin-top: 50px;
 }
 .footer_menu a{
 	text-decoration: none;
 	color:#48484a;
 	font-size: 18px;
+	text-transform: uppercase;
 }
 .footer_menu a:hover{
 	text-decoration: underline;
