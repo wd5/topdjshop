@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 import threading
 import decimal
 import random
+import settings
 
 CART_ID_SESSION_KEY = 'cart_id'
 
@@ -125,7 +126,7 @@ def send_admin_email(cart_items, form, cart_subtotal):
         % (form.cleaned_data['surname'], form.cleaned_data['name'], form.cleaned_data['patronymic'],
         form.cleaned_data['city'], form.cleaned_data['postcode'], form.cleaned_data['phone'],
         form.cleaned_data['address'], form.cleaned_data['email'], products_for_email, cart_subtotal),
-        'freebsdstuff@gmail.com', ['freebsdstuff@gmail.com'], 'fail_silently=False'])
+        settings.EMAIL_HOST_USER, [settings.EMAIL_HOST_USER], 'fail_silently=False'])
     t.setDaemon(True)
     t.start()
 
@@ -138,6 +139,6 @@ def send_client_email(cart_items, form, cart_subtotal):
         u'Ваш заказ от topdjshop',
         u'Здравствуйте %s,\n\nВы оформили у нас заказ на:\n%s\nВсего на сумму: %s руб\n\nВ ближайшее время наш менеджер с вами свяжется.\nС Уважением, topdjshop.ru' %
         (form.cleaned_data['name'], products_for_email, cart_subtotal ),
-        'freebsdstuff@gmail.com', [form.cleaned_data['email']], 'fail_silently=False'])
+        settings.EMAIL_HOST_USER, [form.cleaned_data['email']], 'fail_silently=False'])
     t.setDaemon(True)
     t.start()
