@@ -1,7 +1,11 @@
+{% load analytics %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
+        <meta name='yandex-verification' content='7989bb695e2f9cf7' />
+        <meta name="keywords" content="{{ meta_keywords }}" />
+        <meta name="description" content="{{ meta_description }}" />
         <title>{% block title %}{% if page_title %}{{ page_title }}{% endif %}
             {{ site_name }}{% endblock %}</title>
 		<link href="{{ MEDIA_URL }}style.css" type="text/css" rel="stylesheet" />
@@ -67,5 +71,6 @@
 	</head>
 	<body>
         {% block site_wrapper %}{% endblock %}
+        {% analytics %}
        	</body>
 </html>
