@@ -24,6 +24,8 @@ def show_product(request, product_slug):
     photos = product.productsphoto_set.all()
     features = product.features_set.all()
     page_title = str(product.brand) + ' ' + str(product.name)
+    meta_keywords = page_title
+    meta_description = page_title + "-" + product.mini_description
 
     # evaluate the HTTP method, change as needed
     if request.method == 'POST':
@@ -49,10 +51,13 @@ def show_product(request, product_slug):
     return render_to_response("main/tovar.html", locals(), context_instance=RequestContext(request))
 
 def about(request):
+    page_title = "О нас"
     return render_to_response('main/about.html', locals(), context_instance=RequestContext(request))
 
 def blog(request):
+    page_title = "Блог"
     return render_to_response('main/blog.html', locals(), context_instance=RequestContext(request))
 
 def delivery(request):
+    page_title = "Доставка и оплата"
     return render_to_response('main/delivery.html', locals(), context_instance=RequestContext(request))

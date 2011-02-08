@@ -28,6 +28,6 @@ def show_cart(request, template_name="cart/cart.html"):
         form = OrderForm()
 
     cart_items = cart.get_cart_items(request)
-    page_title = 'Shopping Cart'
+    page_title = 'Корзина'
     cart_subtotal = cart.cart_subtotal(request)
     return render_to_response(template_name, locals(), context_instance=RequestContext(request))
