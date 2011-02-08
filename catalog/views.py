@@ -12,20 +12,25 @@ def index(request):
     special_prices = Products.objects.filter(is_special_price=True)[0:3]
     # На главную отдаю только последние 3 тавара бестселлера
     bestsellers = Products.objects.filter(is_bestseller=True)[0:3]
+    page_title = "topDJshop - интернет магазин аудио оборудования"
+    meta_keywords = page_title
+    meta_description = "Наушники - для DJ, топовые модели Топовые наушники по доступным ценам. Dr.dre Beats, Pioneer HDJ, Bose."
     return render_to_response('main/index.html', locals(), context_instance=RequestContext(request))
 
 def show_category(request, category_slug):
     category = get_object_or_404(Categories, slug=category_slug)
     products = category.products_set.filter(is_active=True)
+    page_title = "%s %s" % (category.section, category)
+    meta_keywords = page_title
     return render_to_response("main/catalog.html", locals(), context_instance=RequestContext(request))
 
 def show_product(request, product_slug):
     product = get_object_or_404(Products, slug=product_slug)
     photos = product.productsphoto_set.all()
     features = product.features_set.all()
-    page_title = str(product.brand) + ' ' + str(product.name)
+    page_title = "%s %s" % (product.brand, product)
     meta_keywords = page_title
-    meta_description = page_title + "-" + product.mini_description
+    meta_description = "%s - %s" % (page_title, product.mini_description)
 
     # evaluate the HTTP method, change as needed
     if request.method == 'POST':
