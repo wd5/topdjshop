@@ -15,7 +15,8 @@
 				$(".ears").attr("style", "position: absolute; top: "+new_position+"px; left: 60px;");
 				//var Swidth = $(window).width();
 				//var blockWidth = Swidth - 350;
-				$(window).bind('resize',setResize);			
+				$(window).bind('resize',setResize);	
+						
 				
 				
 			$('.prew_img_tov').click(function()
@@ -34,8 +35,8 @@
 			
 			});
 			function setResize(){
-				$('#content').width($(window).width()-350);
-				$('#header').width($(window).width()-350);
+				$('#content').width($(window).width()-380);
+				$('#header').width($(window).width()-380);
 				var Cm =  (100/$('#content').width())*40;
 				$('#contents_margin').css("margin-left", Cm+'%');
 				$('#contents_margin').width(100-Cm+'%');
