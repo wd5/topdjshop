@@ -18,9 +18,6 @@ class Sections(models.Model):
     slug = models.SlugField(max_length=50, unique=True)
     is_active = models.BooleanField(default=True)
 
-    def __unicode__(self):
-        return self.name
-
     class Meta:
         verbose_name_plural = 'Секции товара'
 
@@ -35,12 +32,12 @@ class Categories(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __unicode__(self):
+        return self.name
+
     class Meta:
         ordering = ['-created_at']
         verbose_name_plural = 'Категории товара'
-
-    def __unicode__(self):
-        return self.name
 
     @models.permalink
     def get_absolute_url(self):
