@@ -6,7 +6,7 @@
 					<div id="img_full_in">
 					<a id='close' href="#">Закрыть</a>
 						{% if product.productsphoto_set.all.0.image.url %}
-                                            <a href="{{ product.productsphoto_set.all.0.image.url }}" title="{{ page_title }}"><img class="main_img_tov" class="marketfull_image" src="{{ product.productsphoto_set.all.0.image.url }}" alt="{{ page_title }}" height="400px" /></a>
+                                            <img class="main_img_tov" class="marketfull_image" src="{{ product.productsphoto_set.all.0.image.url }}" alt="{{ page_title }}" height="400px" />
                                             {% else %}
                                                 Фото товара отсутствует
                                             {% endif %}     
@@ -80,7 +80,7 @@
 
                                             </td>
                                             <td>
-                                                <a href="/about"><img src="{{ MEDIA_URL }}images/replica.jpg"/></a>
+                                                <a href="/about"><img src="{{ MEDIA_URL }}images/replica.png"/></a>
                                             </td>
                                         </tr>
                                     <tr>

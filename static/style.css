@@ -531,6 +531,14 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 	vertical-align: middle;
 	text-align: center;
 }
+#basket_table .send_input{
+	padding:4px 0;
+}
+.send_input .errorlist li{
+	color:#D41E1D;
+	list-style: none;
+	font-size: 12px;
+}
 .basket_table_name{
 	padding:0 45px;
 	margin:20px 0; 
@@ -629,7 +637,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 }
 .tovar{
 	
-	margin-bottom: 20px;
+	margin-bottom: 0px;
 
 }
 .tovar .marketfull_image{
@@ -651,7 +659,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 	cursor: pointer;
 }
 .price_box{
-	padding: 30px 30px 30px 0;
+	padding: 0px 30px 30px 0;
 }
 #img_full{
 	position: absolute;
