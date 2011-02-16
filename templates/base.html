@@ -26,19 +26,23 @@
 				$('.main_img_tov').attr('src',$(this).attr('src'));		
 			});
 			
-			$('#close').click(function(){
+			$('#img_full').click(function(event){
+				if (event.target == this){	
+				$('#opac_bg').hide();		
 				$('#img_full').hide();
+				}
 			});	
 				
 			$('#main_img_tov_link').click(function(){
+			$('#opac_bg').show();
 				$('#img_full').show();
 				return false;
 			});
 			
 			});
 			function setResize(){
-				$('#content').width($(window).width()-350);
-				$('#header').width($(window).width()-350);
+				$('#content').width($(window).width()-380);
+				$('#header').width($(window).width()-380);
 				var Cm =  (100/$('#content').width())*40;
 				$('#contents_margin').css("margin-left", Cm+'%');
 				$('#contents_margin').width(100-Cm+'%');

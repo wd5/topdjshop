@@ -1,10 +1,8 @@
 {% extends "base.html" %}
 {% load catalog_filters %}
 {% block site_wrapper %}
-				<div id="img_full" style="text-align:right;">
-					<center>
+				<center id="img_full">
 					<div id="img_full_in">
-					<a id='close' href="#">Закрыть</a>
 						{% if product.productsphoto_set.all.0.image.url %}
                                             <img class="main_img_tov" class="marketfull_image" src="{{ product.productsphoto_set.all.0.image.url }}" alt="{{ page_title }}" height="400px" />
                                             {% else %}
@@ -18,7 +16,8 @@
 					
 					</div>
 					</center>
-				</div>
+					<div id="opac_bg"></div>
+				
 <div id="wrapper">
 	<div id="sidebar" class="alignleft">
 		{% category_list request.path %}
